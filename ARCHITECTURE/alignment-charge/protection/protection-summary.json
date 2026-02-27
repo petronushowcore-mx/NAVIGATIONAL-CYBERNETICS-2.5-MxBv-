@@ -1,0 +1,22 @@
+{
+  "publication": "Alignment Charge: NC2.5 Node Paper",
+  "tracker_id": "ffc51ac5-87a1-4509-8971-00e537f3ccdd",
+  "timestamp": "2026-02-27T17:56:47.783350+00:00",
+  "layers": {
+    "1_zero_width_wm": "APPLIED",
+    "2_stego_lsb": "MARKER_PREPARED (apply via Claude Code)",
+    "3_copy_tracker": "ffc51ac5-87a1-4509-8971-00e537f3ccdd",
+    "4_jsonld": "WRITTEN",
+    "5_sha256": "WRITTEN",
+    "6_noai_meta": "WRITTEN",
+    "7_print_wm": "WRITTEN",
+    "8_ots": "PENDING (Claude Code: protect.mjs)",
+    "9_gpg": "PENDING (Claude Code: protect.mjs)",
+    "10_dmca": "PENDING (Claude Code: protect.mjs)",
+    "11_supabase_audit": "PENDING (Claude Code: protect.mjs)"
+  },
+  "hashes": {
+    "article_sha256": "e73d04ae8ac80c8f083722ff0d3b22f4454510a89400afdd17f02be3ef70504a",
+    "cover_sha256": "2197dda8124e04ec969c35a57891e9f6ebd21b922df632120139a2014544d1c1"
+  }
+}
