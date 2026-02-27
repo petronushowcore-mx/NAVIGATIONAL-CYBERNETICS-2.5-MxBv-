@@ -1,0 +1,34 @@
+/* Print Watermark — Alignment Charge paper */
+/* Layer 7: Visible watermark on printed copies */
+
+@media print {
+  body::after {
+    content: "© Maksim Barziankou / MxBv — CC BY-NC-ND 4.0 — Tracker: ffc51ac5-87a1-4509-8971-00e537f3ccdd";
+    position: fixed;
+    bottom: 10mm;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 8pt;
+    color: rgba(0, 0, 0, 0.3);
+    font-family: monospace;
+    letter-spacing: 0.5px;
+    z-index: 9999;
+    pointer-events: none;
+  }
+
+  body::before {
+    content: "ALIGNMENT CHARGE — NC2.5 NODE PAPER — DO NOT REPRODUCE WITHOUT PERMISSION";
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg);
+    font-size: 48pt;
+    color: rgba(0, 0, 0, 0.04);
+    font-family: sans-serif;
+    font-weight: bold;
+    white-space: nowrap;
+    z-index: 9998;
+    pointer-events: none;
+  }
+}
