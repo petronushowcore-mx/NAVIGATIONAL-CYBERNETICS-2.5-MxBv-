@@ -188,7 +188,7 @@ Binary enforcement eliminates this surface. There is no gradient to follow. Ther
 
 The SNA is not only an architectural primitive. It is also a diagnostic for multi-agent systems.
 
-If you examine an existing multi-agent coordination system and ask "who enforces the coordination invariants," you discover one of three answers. Either no one enforces them — they are declared but not maintained. Or a participant enforces them — which means enforcement is structurally compromised by the participation trap. Or an observer monitors them — which means violations are detected but not halted.
+If you examine an existing multi-agent coordination system and ask "who enforces the coordination invariants", you discover one of three answers. Either no one enforces them — they are declared but not maintained. Or a participant enforces them — which means enforcement is structurally compromised by the participation trap. Or an observer monitors them — which means violations are detected but not halted.
 
 The SNA reveals a fourth answer: a dedicated non-participant enforcer with halt authority, architectural independence, and jurisdictional scope.
 
