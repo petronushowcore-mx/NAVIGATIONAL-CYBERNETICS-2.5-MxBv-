@@ -73,7 +73,7 @@ No external boundary is violated. The system does not confuse self and other. Th
 
 From an architectural standpoint, this is remarkable.
 
-Living systems contain a powerful primitive: survival. In the previous text, I called it "the basic ontological invariant of the living — the primacy of survival." This primitive governs behavior across biological scales. It shapes metabolism, attention, movement, adaptation, and — when all superstructures fail — it becomes the last functioning invariant.
+Living systems contain a powerful primitive: survival. In the previous text, I called it "the basic ontological invariant of the living — the primacy of survival". This primitive governs behavior across biological scales. It shapes metabolism, attention, movement, adaptation, and — when all superstructures fail — it becomes the last functioning invariant.
 
 Survival is not a moral preference. It is an organizing constraint. It is what remains when everything else is stripped away.
 
@@ -115,7 +115,7 @@ External death events — accident, predation, disease, starvation — occur whe
 
 Suicide is different. The termination pathway is authorized internally.
 
-This does not require conscious reasoning. It does not require a deliberate decision in the folk-psychological sense of "choosing to die." The authorization may occur through distributed biological, cognitive, or emotional processes — through a slow, irreversible accumulation of structural burden that gradually eliminates all admissible continuations until only one remains.
+This does not require conscious reasoning. It does not require a deliberate decision in the folk-psychological sense of "choosing to die". The authorization may occur through distributed biological, cognitive, or emotional processes — through a slow, irreversible accumulation of structural burden that gradually eliminates all admissible continuations until only one remains.
 
 What matters architecturally is not the mechanism but the structural outcome: the system permits the transition that ends its own identity trajectory. The gate that should prevent self-destruction opens — not because it has been forced, but because the architecture that held it closed has itself disintegrated.
 
