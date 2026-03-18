@@ -118,7 +118,7 @@ Each Divergence Report declares the divergence type as a structured field. Downs
 
 ### 5.2 Epistemic Value of Divergence
 
-The Divergence Report is information the user cannot obtain from any single-model system (which always produces one answer) or multi-agent debate system (which drives agents toward consensus even when the corpus is genuinely ambiguous [Du et al., 2023]). The present architecture is the only class of system in which the design goal is to surface disagreement rather than to suppress it. This is not an incremental improvement over prior art — it is an inversion of the design objective.
+The Divergence Report is information the user cannot obtain from any single-model system (which always produces one answer) or multi-agent debate system (which drives agents toward consensus even when the corpus is genuinely ambiguous [Du et al., 2023]). The present architecture is a distinct architectural class in which the design goal is to surface disagreement rather than to suppress it. This is not an incremental improvement over prior art — it is an inversion of the design objective.
 
 ---
 
@@ -185,7 +185,7 @@ A corpus containing a factual error may produce high structural confidence if al
 
 ### 8.3 Architectural Class Boundaries
 
-The architecture defines a class characterized by three jointly necessary properties: (1) constraint on information flow between agents as an epistemic precondition; (2) measurement of corpus-induced convergence rather than answer-level consensus; (3) process validity as the primary output. No prior art system satisfies all three simultaneously.
+The architecture defines a class characterized by three jointly necessary properties: (1) constraint on information flow between agents as an epistemic precondition; (2) measurement of corpus-induced convergence rather than answer-level consensus; (3) process validity as the primary output. Prior art systems we are aware of do not simultaneously satisfy all three properties.
 
 An ensemble system without communication satisfies property (1) but not (2) or (3): it aggregates outputs rather than measuring evidence provenance, and produces a selected answer. A self-consistency system [Wang et al., 2022] satisfies property (1) but not (2) or (3): it measures text-level agreement rather than shared evidence provenance. A RAG system [Lewis et al., 2020] satisfies none of the three.
 
@@ -226,7 +226,7 @@ The architecture makes four testable predictions:
 
 3. **Model substitution invariance.** Replacing interpretation models while holding corpus and query constant should produce structurally similar synthesis topologies. Significant sensitivity to model identity would indicate that system intelligence is not fully architecture-resident.
 
-4. **Correlated bias detection.** For queries where homogeneous-family agents produce unanimous overlap but heterogeneous-family agents produce divergence, the architecture should flag the homogeneous result as a potential correlated-bias indicator [cf. Turpin et al., 2023 on training-prior correlation in LLM agreement].
+4. **Correlated bias detection.** For queries where homogeneous-family agents produce unanimous overlap but heterogeneous-family agents produce divergence, the architecture should flag the homogeneous result as a potential correlated-bias indicator.
 
 ---
 
