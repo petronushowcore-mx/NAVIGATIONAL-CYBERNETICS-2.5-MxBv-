@@ -1,0 +1,35 @@
+# Secrets — never commit
+.env
+.env.*
+*.local
+.notion-env
+secrets/
+*.key
+*.asc.priv
+*-private.asc
+*passphrase*
+.gpg-passphrase
+
+# OS / editor
+.DS_Store
+Thumbs.db
+desktop.ini
+~$*
+*.tmp
+*.swp
+*.bak
+
+# Build / cache
+node_modules/
+__pycache__/
+*.pyc
+.next/
+dist/
+out/
+build/
+.vercel/
+.astro/
+
+# Logs
+*.log
+logs/
