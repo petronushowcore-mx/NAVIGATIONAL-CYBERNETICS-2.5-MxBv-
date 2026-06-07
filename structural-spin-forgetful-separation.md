@@ -18,7 +18,7 @@ We isolate a single structural pattern: a forgetful map from *(dynamics $+$ an e
 
 On the canonical domain we make the identity defect constructive, with a proportionality criterion for witness-exactness, and we show the naive support-subspace (viability-shadow) repair does not transport to the witness, a genuine witness-repair remaining open; and that the four demands — divergence-free, operational-spin-free, orthogonal to $\nabla V$, and nonzero witness $c$ — are jointly satisfiable, for $M$ compact and boundaryless, exactly when the harmonic representative of $c$ is pointwise orthogonal to $\nabla V$, a class-dependent obstruction. The non-gradient structure has two channels — a topological de Rham period (the identity witness) and a local vorticity $2$-form — so that recurrence on a space with trivial $H^1$, were it to occur, is seen only by the latter; and the two instances are meant for *joint* use, the admissibility companion certifying survival and the spin layer certifying liveness — so that neither alone flags the survives-yet-dead configuration exhibited in the worked example. Witness preservation is moreover *sufficient*, on the canonical domain, for forward transfer of the topological identity, not only necessary; the topological witness detects only homologically non-trivial recurrence (necessary, not sufficient, for a fixed spin) and is blind on $H^1=0$ (axial rotation on $S^2$); and a finite graph-Hodge instrument computes the witness and its collapse on raw incidence data. A field-level repair and a high-dimensional operationalization remain open.
 
-## Introduction {#sec:intro}
+## Introduction
 
 Many dynamical settings carry, over and above their state dynamics, a *structural layer*: a rule, an admissibility predicate, or a non-conservative component that is independent data and is not determined by the bare dynamics. The organizing question is uniform: *which transfers of the layer between two systems are licensed, and which are not, by similarity of the underlying dynamics alone?* In each instance the answer is governed by a forgetful map from the structured objects to the bare ones that is faithful but *not full*, so that a morphism of skeletons need not lift to one respecting the layer.
 
@@ -34,33 +34,33 @@ Throughout, the metric $g$ is fixed and all metric-dependent objects ($S^\flat$,
 
 is the object of study; (S1)--(S3) are the conditions under which the structural-spin theory of [nc25] excludes a global gradient representation.
 
-**Definition (Non-stagnant recurrent identity and its witness)** {#def:identity}
+**Definition (Non-stagnant recurrent identity and its witness)**
 
 A *non-stagnant recurrent identity* is a non-constant recurrent orbit of the flow: a non-constant orbit returning to every neighbourhood of one of its points at arbitrarily late times. Its *identity witness* on a recurrence loop $\gamma$ — the *topological channel* of the spin (Remark §rem:two-channels) — is the period $\oint_\gamma\eta_S$ of a *closed* component $\eta_S$ of $\omega_S:=S^\flat$, equivalently the pairing of the de Rham class $[\eta_S]\in H^1_\mathrm{dR}(M)$ with $[\gamma]\in H_1(M)$ (an integral cycle class, paired in $H_1(M;\mathbb R)$). Here $\gamma$ is closed: a periodic orbit, or a recurrence segment closed by a chosen short return arc — on which $[\gamma]$ may depend; the canonical loop-free formulation for a general (aperiodic) recurrent orbit is the Schwartzman asymptotic cycle (Remark §rem:schwartzman), to which the periodic $[\gamma]$ specializes. The richer notion of identity under a bounded internal budget developed in [nc25] is not needed below: we use only the elementary necessity of Proposition §prop:identity.
 
-**Proposition (Spin is necessary for a recurrent identity)** {#prop:identity}
+**Proposition (Spin is necessary for a recurrent identity)**
 
 For any smooth $V$, the value $V$ is strictly decreasing along every non-constant orbit of the pure gradient skeleton $\dot x=-\nabla V$; hence the skeleton has no non-constant recurrent orbit (orbits assumed forward-complete on the recurrence in question), and a non-stagnant recurrent identity requires a non-gradient component $S\not\equiv0$.
 
 *Proof.* At a critical point ($\nabla V=0$) the constant orbit is the unique solution, so a non-constant orbit meets no critical point; there $\tfrac{d}{dt}V=\langle\nabla V,\dot x\rangle=-\|\nabla V\|^2<0$, so $V$ is strictly decreasing along it. A recurrent point $x$ has return times $t_n\to\infty$ with $x(t_n)\to x$ (the orbit being forward-defined there), whence $V(x(t_n))\to V(x)$; but $V(x(t_n))$ is strictly decreasing and bounded above by $V(x(t_1))<V(x)$, so it cannot converge to $V(x)$, the required contradiction. Thus the gradient skeleton has no non-constant recurrent orbit, and any non-stagnant recurrent identity forces $S\not\equiv0$. $\qquad\blacksquare$
 
-**Remark (Recurrence lives on the critical set)** {#rem:critset}
+**Remark (Recurrence lives on the critical set)**
 
 Under (S2) the same computation gives $\tfrac{d}{dt}V=-\|\nabla V\|^2$ along the *full* flow $\dot x=-\nabla V+S$ (since $\langle S,\nabla V\rangle=0$). Hence any recurrent orbit of the full system — under the same forward-completeness proviso as Proposition §prop:identity — has $V$ constant, so it lies in the critical set $\{\nabla V=0\}$, where $-\nabla V=0$ and the motion is pure spin $\dot x=S$. The non-stagnant identity is therefore carried entirely by $S$ on $\{\nabla V=0\}$ — in Example §ex:worked the invariant circle $\{y=0\}$.
 
-**Remark (Two channels of the non-gradient structure)** {#rem:two-channels}
+**Remark (Two channels of the non-gradient structure)**
 
 The de Rham period $[\eta_S]$ is one of two channels of the non-gradient structure. Write $\Sigma(S):=\big([\eta_S]\in H^1_\mathrm{dR}(M),\ d\omega_S\in\Omega^2(M)\big)$: the *topological circulation* channel $[\eta_S]$ and the *local vorticity* channel $d\omega_S=2\times(\text{operational spin})$ (§sec:operational). The first is constrained by topology — if $H^1_\mathrm{dR}(M)=0$ then $[\eta_S]=0$ for every $S$, so on $\mathbb R^2$ it is vacuous — while $d\omega_S$ is a (globally exact) $2$-form unconstrained by topology and may be nonzero on $\mathbb R^2$. Both extremes occur for the spin field itself: plane rotation $S=(-y,x)$ on $\mathbb R^2$ (with $V=\tfrac12(x^2+y^2)$) has $[\eta_S]=0$ but $d\omega_S=2\,dx\wedge dy\neq0$ (*local-only*), while $S=\partial_\theta$ on $S^1\times\mathbb R$ (Example §ex:worked) has $\omega_S$ closed, $d\omega_S=0$, and period $2\pi$ (*topological-active*). Accordingly the necessity of Proposition §prop:identity is only that $S\not\equiv0$: the de Rham period is one detectable channel of that non-gradient structure, not a complete characterization. The cohomological certificate of §sec:certificate concerns the topological channel; the co-exact part is read locally by $d\omega_S$.
 
 **What this paper does and does not introduce.** We introduce no new Hodge decomposition and no new theory of vorticity. The claim is structural and categorical: the spin component is a layer over the gradient skeleton that is *not recoverable* from the skeleton, exactly as admissibility is a non-recoverable layer over a transition skeleton. The supporting mathematics — the Hodge--de Rham decomposition [warner, morita], singular/de Rham (co)homology [hatcher, bott], elementary category theory [maclane], and the vorticity (spin) tensor of continuum mechanics [truesdell, batchelor] — is classical throughout.
 
-## The spin fibre over a gradient skeleton {#sec:fibre}
+## The spin fibre over a gradient skeleton
 
-**Definition (Forgetful projection)** {#def:Usp}
+**Definition (Forgetful projection)**
 
 On objects $(M,g,F=-\nabla V+S)$ define $U_{\mathrm{sp}}\colon(M,g,F)\mapsto(M,g,-\nabla V)$, discarding the non-gradient component and retaining the gradient skeleton. The fibre over a fixed skeleton is $U_{\mathrm{sp}}^{-1}(-\nabla V)=\{\,S:\text{(S1)}\wedge\text{(S2)}\wedge\text{(S3)}\,\}$; the category $\mathsf{SpinFlow}$ of §sec:functor additionally admits the trivial object $S=0$ (Definition §def:cats).
 
-**Theorem (The skeleton does not determine the spin)** {#thm:fibre}
+**Theorem (The skeleton does not determine the spin)**
 
 (a) *(Compact case.)* Let $M$ be compact, oriented, without boundary. For $S$ satisfying (S1), the $1$-form $\omega_S:=S^\flat$ is co-closed and its Hodge decomposition has no exact part, $\omega_S=\delta\beta\oplus h$ ($\delta\beta$ co-exact, $h$ harmonic). Any nonzero such $S$ is not a gradient (a co-closed exact $1$-form on a closed manifold vanishes), so (S3) is automatic for $S\neq0$; on such closed $M$, (S3) is thus a corollary of Hodge theory.
 
@@ -70,15 +70,15 @@ Consequently the gradient skeleton $-\nabla V$ does not determine $S$.
 
 *Proof.* (a) (S1) is $\delta\omega_S=0$, so $\omega_S$ is co-closed; writing $\omega_S=d\alpha+\delta\beta+h$ gives $0=\delta\omega_S=\delta d\alpha$, whence $\|d\alpha\|^2=\langle\alpha,\delta d\alpha\rangle=0$ on a closed manifold and $d\alpha=0$. A nonzero exact $\omega_S$ would be co-closed and exact, hence zero, a contradiction. (b) the existence claim is conditional, with Example §ex:worked exhibiting the hypothesis as non-vacuous; linearity in $S$ of (S1)--(S2) and homogeneity of (S3) (if $\lambda S=\nabla W$ then $S=\nabla(W/\lambda)$, contradicting (S3) for $\lambda\neq0$) give the punctured line; (S2)-compatibility of a generic Hodge component is not asserted. $\square$
 
-**Remark (Each diagnostic reads one Hodge summand; compact case)** {#rem:hodge-tie}
+**Remark (Each diagnostic reads one Hodge summand; compact case)**
 
 On $M$ compact, oriented, boundaryless, part (a) gives $\omega_S=\delta\beta\oplus h$ with $\delta\beta$ co-exact and $h$ harmonic (no exact part, by (S1)). The two channels $\Sigma(S)=([\eta_S],d\omega_S)$ of Remark §rem:two-channels then read the two summands: $[\eta_S]=[h]$ is the class of the harmonic summand ($\eta_S=h$, the harmonic projection of $\omega_S=\delta\beta\oplus h$ being $h$; the harmonic representative of a de~Rham class is unique, so this choice of $\eta_S$ is canonical), while $d\omega_S=d(\delta\beta)$ is determined by the co-exact summand (since $dh=0$). Thus the topological and operational diagnostics are functions of complementary Hodge components of the single object $\omega_S$ — note $\omega_S$ itself is generally non-closed here, so it is $h$, not $\omega_S$, that carries the de~Rham class, and the two diagnostics do not reconstruct $\omega_S$ as a $1$-form. This is expository — a reading of part (a) and Remark §rem:two-channels, not a new theorem — and is confined to the compact branch: on the globally-closed branch (Example §ex:worked) $d\omega_S=0$ identically and the Hodge projection is unavailable, so the two-component picture degenerates to one.
 
-**Remark (A family of witnesses)** {#rem:family}
+**Remark (A family of witnesses)**
 
 If $M=N\times\mathbb R$ carries the product metric $g_N\oplus dy^2$, $V=V(y)$ ($y$ the $\mathbb R$-coordinate), and $X$ is a nonzero divergence-free field on $(N,g_N)$, viewed as tangent to the $N$ factor, then $S=X$ satisfies (S1)--(S2), with (S3) holding whenever $X$ is not a gradient on $N$. This is a family of (S2)-compatible spins; Example §ex:worked is the case $N=S^1$, $X=\partial_\theta$.
 
-**Remark (The fibre as stream-function structure)** {#rem:streamfn}
+**Remark (The fibre as stream-function structure)**
 
 Conditions (S1)--(S2) say exactly that $S$ is divergence-free and tangent to the level sets $\{V=\mathrm{const}\}$: via the volume form $\mu$, $\nabla\!\cdot\!S=0\iff i_S\mu$ is closed and $\langle S,\nabla V\rangle=0\iff dV\wedge i_S\mu=0$. On an oriented surface, on the regular set $\{\nabla V\neq0\}$ with connected level sets, every such $S$ is $S=a(V)\,J\nabla V$, the Hamiltonian/skew-gradient of $V$ with leaf-profile $a$ — the classical stream-function structure of $2$D incompressible flow (streamlines $=$ level sets). Globally the fibre is strictly larger: $\partial_\theta$ on $S^1\times\mathbb R$ is divergence-free and leaf-tangent but escapes the profile form: the candidate profile $a\propto 1/y$ is not a single-valued function of $V=\tfrac12 y^2$ on the regular set (the level $\{V=v\}$, $v>0$, is the two circles $y=\pm\sqrt{2v}$, on which it takes opposite signs) and diverges at the critical level $\{y=0\}$, which is exactly where the topological channel $[\eta_S]\neq0$ is generated. This is classical and is recorded only to ground the abstract fibre; no foliated-cohomology identification is claimed.
 
@@ -86,11 +86,11 @@ Conditions (S1)--(S2) say exactly that $S$ is divergence-free and tangent to the
 
 Theorem §thm:fibre is the spin analogue of the non-triviality of the admissibility fibre $U^{-1}(\mathsf D)$: identity of the gradient skeleton does not license transfer of $S$, exactly as identity of the transition skeleton does not license transfer of admissibility.
 
-## The forgetful functor {#sec:functor}
+## The forgetful functor
 
 We restrict morphisms to those that preserve the splitting, just as the discrete theory restricts to admissibility-preserving maps. We state the condition as a *positive semiconjugacy* of the flows, up to a positive constant time-rescaling; for a non-injective map (such as the folding of Example §ex:worked) the relevant fields are required to be projectable, so the pushforward is defined. Time parametrization need not be preserved; equivalently the condition may be read on unparametrized orbits.
 
-**Definition (Categories and forgetful functor)** {#def:cats}
+**Definition (Categories and forgetful functor)**
 
 - $\mathsf{GradFlow}$ has objects $(M,g,V)$. A morphism $(M,g,V)\to(M',g',V')$ is a smooth $\phi\colon M\to M'$ with $d\phi_x(-\nabla V(x))=\lambda\,(-\nabla'V'(\phi(x)))$ for all $x$ and some constant $\lambda>0$ (determined wherever $\nabla'V'\circ\phi\neq0$, so the constant is unambiguous under composition; a positive semiconjugacy of the gradient flows; $-\nabla V$ required $\phi$-projectable when $\phi$ is non-injective).
 - $\mathsf{SpinFlow}$ has objects $(M,g,V,S)$ with $S$ satisfying (S1)--(S2) and either (S3) (nontrivial spin) or $S=0$ (the trivial bare-gradient object; $S=0$ is admitted separately because $0=\nabla(\mathrm{const})$ is a gradient and so formally violates (S3)). A morphism is a smooth $\phi$ semiconjugating the gradient flow *and* the full flow by a *common* positive constant: $d\phi_x(-\nabla V(x))=\lambda\,(-\nabla'V'(\phi(x)))$ and $d\phi_x(F(x))=\lambda\,F'(\phi(x))$ for the same $\lambda>0$ ($F=-\nabla V+S$; equivalently $d\phi(S)=\lambda S'$; $F$ projectable when $\phi$ is non-injective). Thus "preserving the splitting" means a single positive time-rescaling carries the gradient and full flows together; $U_{\mathrm{sp}}$ forgets $S$, the underlying $\mathsf{GradFlow}$-morphism keeping the same $\lambda$.
@@ -98,7 +98,7 @@ We restrict morphisms to those that preserve the splitting, just as the discrete
 
 The semiconjugacy conditions are closed under composition (the constants multiply: $d(\psi\phi)(F)=\lambda\mu\,F''\circ\psi\phi$) and hold for identities ($\lambda=1$), so $\mathsf{GradFlow}$ and $\mathsf{SpinFlow}$ are categories. The objects of $\mathsf{SpinFlow}$ over a fixed $(M,g,V)$ are $U_{\mathrm{sp}}^{-1}(-\nabla V)\cup\{0\}$; non-triviality (Theorem §thm:fibre) concerns the part $S\neq0$.
 
-**Theorem (Faithful, not full)** {#thm:faithful}
+**Theorem (Faithful, not full)**
 
 $U_{\mathrm{sp}}\colon\mathsf{SpinFlow}\to\mathsf{GradFlow}$ is faithful but not full.
 
@@ -110,11 +110,11 @@ $U_{\mathrm{sp}}\colon\mathsf{SpinFlow}\to\mathsf{GradFlow}$ is faithful but not
 
 Metric-dependence and non-canonicity of the gradient/spin split under arbitrary maps are resolved exactly as in the discrete theory: morphisms are restricted to split-preserving maps. The price is a small morphism class (isometry-like maps together with collapsing maps such as the folding below); we do not claim a rich morphism class. Faithful-not-fullness (Theorem §thm:faithful) is moreover generic for forgetful functors; the content here is not that categorical fact but the non-trivial fibre (Theorem §thm:fibre) and the lifting criterion (Proposition §prop:constructive-defect) it makes available.
 
-## Identity transfer versus viability transfer {#sec:idvsviab}
+## Identity transfer versus viability transfer
 
 The admissibility layer transfers a *viability kernel* $\operatorname{Viab}^\infty=\{x:\exists\text{ an admissible infinite trajectory from }x\}$ along a morphism. The spin layer carries *identity* (Proposition §prop:identity): a non-stagnant recurrent identity requires $S\neq0$, the witness being a non-vanishing period of a closed component of $\omega_S$ (§sec:certificate). The two layers are independent, with a consequence.
 
-**Proposition (Viability transfer does not control the spin)** {#prop:viab}
+**Proposition (Viability transfer does not control the spin)**
 
 Any transfer condition whose signature involves only the skeleton, the state map, the admissibility predicate, and the viability kernel — but not $S$ or its witness — cannot imply or control preservation of the identity witness $[\eta_S]$, for conditions read off data shared across the fibre (the unconditional separation being the explicit Example §ex:worked). (The weak, kernel-exact, and viability-bisimulation conditions of [admissibility] are of this form.) By Theorem §thm:fibre the fibre over a fixed skeleton is non-trivial, so such a condition is invariant under the choice of $S$ in the fibre, and equally under passage to the trivial object $S=0$ (the augmented set $U_{\mathrm{sp}}^{-1}(-\nabla V)\cup\{0\}$ of Definition §def:cats); in particular it does not see the collapse $S\to0$. Unconditionally, the folding of Example §ex:worked is a viability-exact, spin-collapsing morphism (Theorem §thm:strict); hence accurate identity transfer — viability transfer *together with* witness survival — is strictly stronger than viability transfer alone.
 
@@ -124,18 +124,18 @@ Any transfer condition whose signature involves only the skeleton, the state map
 
 a necessary filter, not an equality: the certificate below detects *failure* of identity transfer, not its success.
 
-**Remark (The universal reading is an informal principle)** {#rem:viab-informal}
+**Remark (The universal reading is an informal principle)**
 
 The broad reading of Proposition §prop:viab — that *any* condition not naming $S$ in its signature fails to control $[\eta_S]$ — is heuristic: its scope rests on an informal notion of a condition's "signature", and the fibre-invariance argument assumes the viability data is shared across the fibre (in general $\operatorname{Viab}^\infty$ can itself move with $S$ through the full flow). The rigorous content is the hypothesis-qualified invariance above together with the unconditional separation of Example §ex:worked (Theorem §thm:strict).
 
-## The two-layer certificate {#sec:certificate}
+## The two-layer certificate
 
 The discrete theory certifies viability transfer by a *defect*
 $\Delta_\tau=\tau_X^{-1}(\operatorname{Viab}^\infty_j)\setminus\operatorname{Viab}^\infty_i$, with $\Delta_\tau=\varnothing$ iff
 the transfer is kernel-exact. The spin layer supplies a parallel certificate for identity, anchored
 in cohomology.
 
-**Definition (Identity-transfer defect)** {#def:iddefect}
+**Definition (Identity-transfer defect)**
 
 Fix, as in Definition §def:identity, a closed component $\eta_S$ of $\omega_S$ with class
 $[\eta_S]\in H^1_\mathrm{dR}(M)$ (on compact boundaryless $M$ the harmonic projection; in Example §ex:worked,
@@ -155,7 +155,7 @@ sees only this cohomological component: a purely co-exact part, whose single-loo
 loop-dependent rather than a topological invariant, is detected separately by the local
 operational spin (§sec:operational).
 
-**Proposition (Witness as a necessary-condition certificate)** {#prop:cert}
+**Proposition (Witness as a necessary-condition certificate)**
 
 The class $[\eta_S]\in H^1_\mathrm{dR}(M)\cong H^1(M;\mathbb R)$ of a closed component $\eta_S$ of
 $\omega_S$ — equivalently the periods $\oint_\gamma\eta_S$ over a basis of $H_1$, requiring only
@@ -186,7 +186,7 @@ $\Delta_\tau$ — is achieved on the canonical domain in Proposition §prop:cons
 the field-level repair, by contrast, is not provided by the naive support-subspace transport, a
 kernel-lattice repair remaining open (Remark §rem:no-repair).
 
-**Proposition (Necessity and blindness of the topological witness)** {#prop:complete}
+**Proposition (Necessity and blindness of the topological witness)**
 
 For a fixed spin $S$ the topological witness detects *only* homologically non-trivial recurrence: a
 non-vanishing witness $\langle[\eta_S],[\gamma]\rangle\neq0$ forces $[\gamma]\neq0$, so homological
@@ -209,7 +209,7 @@ necessity; the existential equivalence is the non-degeneracy of the de Rham pair
 If $H^1_\mathrm{dR}(M)=0$ every closed $1$-form is exact, so $\oint_\gamma\eta_S=0$ for every closed component and
 every $\gamma$, while a recurrent identity may persist on the critical set (Remark §rem:critset). $\square$
 
-**Example (A recurrent identity invisible to the topological witness)** {#ex:s2}
+**Example (A recurrent identity invisible to the topological witness)**
 
 On $M=S^2$ with the round metric, $V=\tfrac12 z^2=\tfrac12\cos^2\theta$ and $S=\partial_\phi$ (axial
 rotation): $\nabla V=-\sin\theta\cos\theta\,\partial_\theta$ vanishes on the equator $\{\theta=\pi/2\}$;
@@ -224,7 +224,7 @@ equator (Definition §def:iddefect). Only $d\omega_S$ detects the identity: the 
 is necessarily blind. The discrete realization is the disk complex of §sec:operational ($b_1=0$,
 witness $\equiv0$, nonzero curl).
 
-**Proposition (Constructive identity-transfer defect and exactness)** {#prop:constructive-defect}
+**Proposition (Constructive identity-transfer defect and exactness)**
 
 On the canonical domain, with $M,M'$ of finite homological type ($b_1<\infty$; needed only for the finite algorithm below, not for the linear-algebra equivalence), write
 $a:=[\eta_S]\in H^1_\mathrm{dR}(M)\cong\operatorname{Hom}(H_1(M;\mathbb R),\mathbb R)$ and $b:=\phi^*[\eta_{S'}]$. Then the
@@ -257,7 +257,7 @@ For linear functionals, $\ker b\subseteq\ker a$ holds iff $a\in\operatorname{spa
 $\ker b=H_1\subseteq\ker a$ forces $a=0=0\cdot b$; if $b\neq0$, pick $v_0$ with $b(v_0)=1$ and set
 $\lambda:=a(v_0)$, so $v-b(v)v_0\in\ker b\subseteq\ker a$ gives $a(v)=\lambda b(v)$ for all $v$. $\square$
 
-**Remark (The support-subspace repair is blind to the witness)** {#rem:no-repair}
+**Remark (The support-subspace repair is blind to the witness)**
 
 One may try to repair a failed transfer by transporting a discrete minimal-repair calculus to the
 lattice of homology subspaces $\mathrm{Sub}(H_1(M;\mathbb R))$ along $\phi_*$ (image $\dashv$ preimage).
@@ -278,7 +278,7 @@ of *kernels/annihilators* (rather than supports) is not excluded and remains ope
 constructive witness-repair at the field level — lifting a corrected class back to an
 (S2)-admissible spin.
 
-**Proposition (Operational-spin obstruction)** {#prop:opspin-obstruction}
+**Proposition (Operational-spin obstruction)**
 
 Let $M$ be compact and boundaryless. Fix $c\in H^1_\mathrm{dR}(M)$ with $c\neq0$ and harmonic representative $h_c$. A spin carrying the witness $[\eta_S]=c$ can be *simultaneously* divergence-free (S1), *operational-spin-free* ($d\omega_S=0$), and (S2)-admissible if and only if
 
@@ -290,7 +290,7 @@ Hence whenever $h_c(\nabla V)\not\equiv0$ — which occurs for suitable $(M,V,c)
 
 *Proof.* (S1) is $\delta\omega_S=0$ and operational-spin-freeness is $d\omega_S=0$; together $\Delta\omega_S=0$, so $\omega_S$ is harmonic and hence equals the unique harmonic representative $h_c$ of its class (Hodge theory on compact $M$, where $\omega_S$ closed gives $[\eta_S]=[\omega_S]=c$). Then (S2), i.e. $\omega_S(\nabla V)=0$, reads $h_c(\nabla V)=0$. Conversely $S=h_c^\sharp$ is harmonic (so (S1) and $d\omega_S=0$), has class $c\neq0$ — whence (S3), a nonzero harmonic form being non-exact — and satisfies (S2) precisely when $h_c(\nabla V)=0$. $\blacksquare$
 
-**Corollary (The obstruction space $W_V$)** {#cor:WV}
+**Corollary (The obstruction space $W_V$)**
 
 Let $M$ be compact and boundaryless and $V\in C^\infty(M)$ arbitrary; write $\mathcal H^1(M)$ for the harmonic $1$-forms and $\Phi\colon\mathcal H^1(M)\xrightarrow{\sim}H^1_\mathrm{dR}(M)$ for the (metric-dependent) Hodge isomorphism. The contraction
 
@@ -308,11 +308,11 @@ a *metric-dependent* invariant of the triple $(M,g,V)$, not a topological invari
 
 *Proof.* $L$ is pointwise evaluation of $h$ on the fixed field $\nabla V$, hence $\mathbb R$-linear; $\ker L$ is a subspace and $\Phi$ a linear isomorphism, so $W_V$ is a subspace. By Proposition §prop:opspin-obstruction a class $c\neq0$ is realized iff $h_c(\nabla V)=0$, i.e. $h_c\in\ker L$, i.e. $c\in W_V$. A divergence-free, operational-spin-free field has $\omega_S$ closed and co-closed, hence harmonic on compact boundaryless $M$, so $\omega_S$ is its own harmonic representative; (S2) then cuts out $\mathcal H^1(M)\cap\ker L\cong W_V$, finite-dimensional, whereas the full fibre retains a leaf-profile's worth of freedom (Remark §rem:streamfn). $\blacksquare$
 
-**Remark (Class-dependence; the obstruction is $\not\equiv0$, never everywhere)** {#rem:opspin-classdep}
+**Remark (Class-dependence; the obstruction is $\not\equiv0$, never everywhere)**
 
 On the flat torus $T^2=\mathbb R^2/(2\pi\mathbb Z)^2$ with $V=V(x)$ non-constant, the harmonic $1$-forms are $c_1\,dx+c_2\,dy$ and $\nabla V=V'(x)\,\partial_x$, so $h_c(\nabla V)=c_1V'(x)$: every class with $c_1\neq0$ is obstructed ($c_1V'\not\equiv0$), while the classes $\mathbb R[dy]$ are free. Since $\nabla V$ vanishes at the critical points of $V$ — which exist on any compact $M$, where $V$ attains its extrema — $h_c(\nabla V)$ vanishes there for *every* class; the obstruction is the failure $h_c(\nabla V)\not\equiv0$ at *some* point, never at every point. Some $(M,V)$ carry no obstructed class at all — e.g. $M=S^1\times N$ with $b_1(N)=0$ (so $H^1_\mathrm{dR}(M)=\mathbb R[d\theta]$) and $V=V(n)$ on the $N$-factor, where the sole harmonic class has $d\theta(\nabla V)\equiv0$; when $b_1(N)>0$ the $N$-factor classes can instead be obstructed (as the $T^2$, $V=V(x)$ computation above shows), so absence of *any* obstructed class needs that extra topological hypothesis. This sharpens the field-level question of Remark §rem:no-repair: reaching the operational-spin-free (closed) regime while keeping a divergence-free, (S2)-admissible witness is obstructed exactly by the classical Hodge condition $h_c(\nabla V)\not\equiv0$, not by any choice of repair calculus. The constructive interplay off this regime — restoring (S2) by giving up (S1) — is a transport problem along $\nabla V$ and is not addressed here. Whether the obstruction space $W_V$ of Corollary §cor:WV vanishes is *dynamical*: $W_V=0$ iff no nonzero harmonic field admits $V$ as a non-constant first integral, since $[h]\in W_V$ exactly when $h(\nabla V)=h^\sharp(V)=0$, i.e. $V$ is constant along the flow of $h^\sharp$. A single harmonic field of minimal flow (e.g. an irrational linear field on a flat $T^2$) has only constant first integrals, so *its* class never lies in $W_V$ for non-constant $V$; a harmonic field with closed orbits (a rational field on $T^2$, or the $S^1$-factor of a product) admits a non-constant first integral, so its class enters $W_V$ for the matching $V$ — as the $V=V(x)$ and $S^1\times N$ computations above (so the same flat $T^2$ carries both free and obstructed classes). Thus $W_V=0$ demands that *no* nonzero harmonic direction admit $V$ as a first integral: it is a joint property of $(g,V)$ — which harmonic flows the metric carries and which of them $V$ integrates — not a matter of generic $V$ alone.
 
-**Proposition (Genericity of trivial harmonic symmetry)** {#prop:WV-generic}
+**Proposition (Genericity of trivial harmonic symmetry)**
 
 Let $M$ be compact, oriented, boundaryless with $b_1(M)\ge1$, and $V\in C^\infty(M)$. Fix a basis $h_1,\dots,h_{b_1}$ of $\mathcal H^1(M)$ and set $F_V(p):=\big(h_1^\sharp(V)(p),\dots,h_{b_1}^\sharp(V)(p)\big)\in\mathbb R^{b_1}$. Then
 
@@ -324,7 +324,7 @@ and $\{V\in C^\infty(M):\dim W_V=0\}$ is open and dense in $C^k(M)$ for every $k
 
 *Proof.* For $c\in\mathbb R^{b_1}$, $\sum_ic_ih_i\in W_V$ iff $\sum_ic_ih_i^\sharp(V)\equiv0$, i.e. iff $c\perp F_V(p)$ for every $p$, i.e. iff $c\perp\operatorname{span}F_V(M)$; the identity follows. *Openness:* $\dim W_V=0$ iff $L$ of Corollary §cor:WV is injective on the $b_1$-dimensional $\mathcal H^1(M)$, equivalently some $b_1\times b_1$ evaluation minor $\det[h_i^\sharp(V)(p_j)]$ at suitable $p_1,\dots,p_{b_1}$ (the matrix of the density step below) is nonzero; each entry is continuous in the $1$-jet of $V$, so this is an open condition. *Density:* for each $p$ put $S_p:=\{(\langle v,h_i^\sharp(p)\rangle)_i:v\in T_pM\}\subseteq\mathbb R^{b_1}$; if $c\perp S_p$ for all $p$ then $\sum_ic_ih_i^\sharp\equiv0$, so $\sum_ic_ih_i=0$ and $c=0$ — hence the $S_p$ jointly span $\mathbb R^{b_1}$. Choose distinct $p_1,\dots,p_{b_1}$ and $v_j\in T_{p_j}M$ with $k_j:=(\langle v_j,h_i^\sharp(p_j)\rangle)_i$ linearly independent — extend greedily, using that the spanning $S_p$ vary continuously and $M$ has no isolated point, so a vector outside the current span is always available at a fresh point — and bump functions $\psi_j$ of disjoint small support with $\nabla\psi_j(p_j)=v_j$. For $V=V_0+\sum_js_j\psi_j$ the matrix $\big[h_i^\sharp(V)(p_j)\big]$ has $j$-th column $b_j+s_jk_j$ (with $b_j:=(h_i^\sharp(V_0)(p_j))_i$), so its determinant is a polynomial in $s$ with leading coefficient $\det[k_1,\dots,k_{b_1}]\neq0$; it is therefore nonzero for arbitrarily small generic $s$, giving $\dim W_V=0$ within any $C^k$-neighbourhood of $V_0$ (every $k\ge1$). $\blacksquare$
 
-**Remark (Sharp models; $\dim W_V$ is not topological)** {#rem:WV-models}
+**Remark (Sharp models; $\dim W_V$ is not topological)**
 
 On a flat torus $T^n=\mathbb R^n/\Lambda$ harmonic forms are constant-coefficient, so $h_a^\sharp$ is the constant field $a$ and $h_a^\sharp(V)=D_aV$; since $D_aV\equiv0$ upgrades to $V(x+ta)=V(x)$,
 
@@ -334,13 +334,13 @@ $$
 
 the dimension of the largest subtorus of translations fixing $V$. Under $\operatorname{Ric}\ge0$ every harmonic $1$-form is parallel by Bochner's theorem [petersen] (so $b_1\le n$); in particular each $h\in W_V$ is parallel and $h^\sharp$ is a Killing field. Finally $\dim W_V$ is *not* a topological invariant: on a fixed $M$ it varies with both $g$ and $V$ — on $T^2$ with $V=V(x)$ one has $\dim W_V=1$ for the flat metric but $0$ for a generic nearby metric — and it is not determined by the level foliation of $V$ alone.
 
-**Remark (Joint use of the two instances)** {#rem:joint}
+**Remark (Joint use of the two instances)**
 
 The two instances are meant to be used together. The admissibility companion [admissibility] certifies *survival* by the viability defect $\Delta_\tau$ (with its constructive transfer/repair calculus); the spin layer certifies *liveness* by the identity defect, constructive as $\ker b\setminus\ker a$ on the canonical domain (Proposition §prop:constructive-defect), the continuous counterpart of $\Delta_\tau$. Proposition §prop:viab shows the two are independent: a morphism can be viability-exact ($\Delta_\tau=\varnothing$) yet destroy the witness — the *survives-but-dead* configuration of Example §ex:worked. Hence neither certificate alone suffices: viability without liveness passes a dead system, and the witness alone says nothing about survival. The joint certificate is the conjunction survival\,$\wedge$\,liveness (necessary, not sufficient: it detects failure of survival and of topological-witness liveness, and is silent on the co-exact channel and on non-topological liveness), and by the homological bridge (§sec:bridge) its liveness half is, under the bridge's class-correspondence, the *same* $H_1$-invariant in the discrete and the continuous scene. This is the operative reason to run the admissibility and spin calculi jointly rather than separately. Within NC2.5 [nc25], this survival/liveness pair is the published distinction between mere physical persistence and identity carried by coherence rather than behaviour (Axiom 20), under the cycle-reinitiation criterion of liveness (Axiom 9): the topological identity witness furnishes a constructive realization of the identity (liveness) channel whose necessity is Theorem 62, the *survives-but-dead* configuration being the silent identity degradation of the performance–identity decoupling (Theorem 15), in which observable viability remains admissible while identity-preserving structure is already eroding. Beyond instantiating that pair, this note opens a *cohomological axis* for it: the liveness witness is here a de Rham class with a constructive transfer-defect (Proposition §prop:constructive-defect), computable on finite data (§sec:operational); the kernel/annihilator repair lattice, the field-level witness-repair, and the apparatus bridge are the directions it thereby opens for the core.
 
-## A worked example {#sec:worked}
+## A worked example
 
-**Example** {#ex:worked}
+**Example**
 
 A continuous setting in which viability and spin coexist cleanly, computing Proposition §prop:viab and the certificate of Proposition §prop:cert.
 
@@ -359,15 +359,15 @@ The viability certificate passes ($\Delta_\tau=\varnothing$); the spin certifica
 
 **Contrast (witness preservation is non-empty).** The identity $\mathrm{id}_A$ on $A$ (and the rotations $\theta\mapsto\theta+c$, isometries fixing $V_A,S_A$) are $\mathsf{SpinFlow}$-morphisms with $\langle[\eta_S],\cdot\rangle$ unchanged and empty identity defect; the witness-preserving class is thus non-empty, and the strict inclusion of Theorem §thm:strict is meaningful.
 
-## Witness-preserving morphisms {#sec:strict}
+## Witness-preserving morphisms
 
 A $\mathsf{SpinFlow}$-morphism $\phi\colon(M,g,V,S)\to(M',g',V',S')$ induces $\phi_*\colon H_1(M)\to H_1(M')$ and $\phi^*\colon H^1(M';\mathbb R)\to H^1(M;\mathbb R)$ (homology and cohomology are functorial for all continuous maps, including non-injective ones). The witness over $[\gamma]\in H_1(M)$ is the pairing $\langle[\eta_S],[\gamma]\rangle$, transferred along $\phi$ to $\langle[\eta_{S'}],\phi_*[\gamma]\rangle$.
 
-**Definition (Witness-preserving)** {#def:wp}
+**Definition (Witness-preserving)**
 
 $\phi$ is *witness-preserving* if it preserves non-vanishing of the cohomological pairing: for every $[\gamma]\in H_1(M;\mathbb R)$ with $\langle[\eta_S],[\gamma]\rangle\neq0$ one has $\langle[\eta_{S'}],\phi_*[\gamma]\rangle\neq0$.
 
-**Theorem (Witness preservation is strictly stronger)** {#thm:strict}
+**Theorem (Witness preservation is strictly stronger)**
 
 The witness-preserving morphisms form a class strictly contained in the $\mathsf{SpinFlow}$-morphisms; viability-exactness does not imply witness-preservation. The folding $\tau$ of Example §ex:worked is a $\mathsf{SpinFlow}$-morphism and is kernel-exact ($\Delta_\tau=\varnothing$) yet is not witness-preserving.
 
@@ -377,21 +377,21 @@ The witness-preserving morphisms form a class strictly contained in the $\mathsf
 
 Definition §def:wp fixes the mechanism formally: witness preservation is preservation of non-vanishing of the induced cohomological pairing, not a verbal "the witness survives". The constructive transfer/repair calculus at this level — a lattice/adjoint structure on the fibre and a minimal repair — is open; the identity defect itself is made constructive on the canonical domain (Proposition §prop:constructive-defect).
 
-**Theorem (Witness preservation positively transfers the topological identity)** {#thm:sufficiency}
+**Theorem (Witness preservation positively transfers the topological identity)**
 
 Let $\phi\colon(M,g,V,S)\to(M',g',V',S')$ be a $\mathsf{SpinFlow}$-morphism that is witness-preserving (Definition §def:wp), with source and target on the canonical domain (Definition §def:iddefect) so that $[\eta_S],[\eta_{S'}]$ are de Rham classes. Then for every non-stagnant recurrent identity $\gamma$ of the source with non-vanishing witness $\langle[\eta_S],[\gamma]\rangle\neq0$, the image $\phi(\gamma)$ is a non-stagnant recurrent identity of the target with non-vanishing witness $\langle[\eta_{S'}],\phi_*[\gamma]\rangle\neq0$. Thus witness preservation is not merely the necessary filter of §sec:idvsviab but is *sufficient for forward transfer of the topological identity* carried by $[\gamma]$.
 
 *Proof.* A $\mathsf{SpinFlow}$-morphism semiconjugates the full flow by a positive constant, $\phi\circ\Phi_s=\Phi'_{\lambda s}\circ\phi$ for the flows $\Phi,\Phi'$ of $F,F'$ and some $\lambda>0$ (Definition §def:cats). If $x_0\in\gamma$ is recurrent with return times $t_n\to\infty$ (the source flow being forward-defined there, as in Proposition §prop:identity), $\Phi_{t_n}(x_0)\to x_0$, then the semiconjugacy makes $\Phi'_{\lambda t_n}(\phi x_0)=\phi(\Phi_{t_n}(x_0))$ defined, and $\to\phi(x_0)$ by continuity, with $\lambda t_n\to\infty$; so $\phi(x_0)$ is recurrent and $\phi(\gamma)$ is a recurrent orbit of the target. Witness preservation (Definition §def:wp) gives $\langle[\eta_{S'}],\phi_*[\gamma]\rangle\neq0$, whence $\phi_*[\gamma]\neq0$; since $\phi_*[\gamma]=[\phi(\gamma)]$ by functoriality (the recurrence loop $\gamma$ of Definition §def:identity furnishing the cycle representative, $\phi(\gamma)$ its image) and a constant orbit is null-homologous, $\phi(\gamma)$ is non-constant, i.e. non-stagnant. Hence $\phi(\gamma)$ is a non-stagnant recurrent identity whose witness survives. $\blacksquare$
 
-**Corollary (Joint sufficiency under bisimulation)** {#cor:joint-sufficiency}
+**Corollary (Joint sufficiency under bisimulation)**
 
 If $\phi$ is in addition a viability-bisimulation — so the viability kernel transfers in both directions [admissibility] — then $\phi$ transfers both the viability kernel (survival) and the topological identity carried by $[\gamma]$ (forward liveness). The joint certificate of §sec:certificate, necessary in general, is therefore *sufficient* on the topological channel under (viability-bisimulation $+$ witness preservation); the reverse-direction liveness and the co-exact channel are not covered.
 
-## A homological bridge between the discrete and continuous instances {#sec:bridge}
+## A homological bridge between the discrete and continuous instances
 
 The discrete instance lives on transition systems and the continuous one on flows; a full functorial bridge between the two apparatuses is open. The *identity witness*, however, bridges them, because it is homological and homology is common to both scenes.
 
-**Proposition (The witness is homological)** {#prop:bridge}
+**Proposition (The witness is homological)**
 
 The witness is a class $[\eta_S]\in H^1_\mathrm{dR}(M)\cong H^1(M;\mathbb R)$ paired with $H_1$. Singular/de Rham homology of a smooth $M$ and the cycle space of a discrete skeleton (graph or simplicial complex) agree on homotopy-equivalent models; e.g. $S^1$ and a cycle graph $C_n$ both have $H_1=\mathbb Z$. Hence homology furnishes a common comparison space: a map inducing an isomorphism on $H_1$ identifies the cycle spaces of the two scenes and makes the two witnesses comparable. Transfer of the witness is the *further* condition that the classes correspond under the induced map — $[\eta_S]=\lambda\,\phi^*[\eta_{S'}]$ as in Proposition §prop:constructive-defect — since the source and target witness $1$-forms are independent data that an $H_1$-isomorphism alone does not relate. Under that correspondence the certificate (survival of the witness) is an $H_1$-statement computable in either scene (a de Rham period, or a winding number on the graph cycle). The certificate is the *non-vanishing* of the class; integral and real coefficients agree by the universal-coefficient theorem for the torsion-free $H_1$ in scope (e.g. $H_1=\mathbb Z$ in Example §ex:worked; the general defect of Proposition §prop:constructive-defect allows any $b_1<\infty$), so integrality is not required.
 
@@ -401,13 +401,13 @@ The witness is a class $[\eta_S]\in H^1_\mathrm{dR}(M)\cong H^1(M;\mathbb R)$ pa
 
 The source $A=S^1\times\mathbb R$ has the discrete shadow $C_n\times(\text{line})$ with $H_1=\mathbb Z$ and the same witness class: winding number $1$ and period $\oint d\theta=2\pi=2\pi\cdot1$ (one generator, normalization $2\pi$). The folding $\tau$ (collapsing $S^1$) is, discretely, the collapse of $C_n$ to a point, which kills the winding — the identity defect. The example runs identically in both scenes. What is bridged is the *invariant*, not the apparatus: a single scene carrying both structures, or a discretization functor preserving both $\operatorname{Viab}^\infty$ and $[\eta_S]$, remains open.
 
-## Operationalization {#sec:operational}
+## Operationalization
 
 For a concrete adaptive system $\dot x=F$ the certificate is not yet a turnkey computation; this is the least closed item. What is already measurable is the *operational spin*: after lowering an index with $g$, the antisymmetric part of the Levi-Civita covariant derivative $\nabla F$ is the $2$-form $\tfrac12\,d(F^\flat)$, and since the Hessian of $-V$ is symmetric this equals $\tfrac12\,d(S^\flat)=\tfrac12\,d\omega_S$ (in coordinates $\tfrac12(J-J^\top)$, $J=\nabla F$). It is the classical local vorticity (spin) tensor of continuum mechanics [truesdell, batchelor], here a measured local diagnostic, and detects the failure of $\omega_S$ to be closed. The global identity witness $\oint_\gamma\eta_S$ additionally requires a structural metric, the recurrence loops $\gamma$, and the circulation around them. The two are linked: where the operational spin vanishes (so $\omega_S$ is closed, $d\omega_S=0$), the period $\oint_\gamma\omega_S$ is a clean topological witness (Proposition §prop:cert); vanishing only near $\gamma$ gives a period invariant merely under homotopies within that neighbourhood, not a homology invariant. The remaining difficulties — a structural metric, loop-finding in high dimension, and the homology of an empirical state space — are open; this note provides the invariant and its certificate, not their high-dimensional computation.
 
 **A diagnostic graph-Hodge instrument (finite case).** On a finite simplicial model the witness and its collapse are directly computable, turning the certificate from "certificate-required" into a running diagnostic on the discrete instance. From sampled states one builds a complex (nodes, $k$-nearest edges, filled triangles); the $1$-Hodge-Laplacian $L_1=B_1^\top B_1+B_2B_2^\top$, with $B_1,B_2$ the node--edge and edge--triangle incidence operators, has harmonic kernel of dimension $b_1$, and the witness is the circulation of the harmonic component around a detected recurrence loop. On a triangulated cylinder ($b_1=1$, the homotopy model of $S^1\times\mathbb R$) the instrument returns harmonic dimension $1$ and, from an edge $1$-cochain of circulation values, a nonzero witness (the incidence data fix the harmonic subspace; the cochain supplies its amplitude), while the viability-exact folding sends the loop's homology generator to $0$, so the pushed-forward witness vanishes identically — the *survives-but-dead* configuration of Example §ex:worked, detected end-to-end from raw incidence data. On a triangulated disk ($b_1=0$, the discrete analogue of Example §ex:s2) the harmonic dimension is $0$ and the topological witness is identically zero while the curl content is nonzero — the blind case of Proposition §prop:complete, confirmed numerically. The reference implementation is the companion script `spin_hodge_demo.py`, a *diagnostic* only (it computes and detects, with no control action). This realizes the finite/discrete operationalization; the structural metric, loop-finding, and empirical homology for general continuous systems remain open.
 
-**Remark (Dynamical reading of the witness via the asymptotic cycle)** {#rem:schwartzman}
+**Remark (Dynamical reading of the witness via the asymptotic cycle)**
 
 Let $\gamma$ be a non-stagnant recurrent identity, carried by Remark §rem:critset on the critical set $\{\nabla V=0\}$ where the motion is pure spin $\dot x=S$, and let $\eta_S$ be a closed component of $\omega_S=S^\flat$ on the canonical domain (Definition §def:iddefect). If the recurrent set carries a flow-invariant Borel probability measure $\mu$ — automatic when it is compact (Krylov--Bogolyubov), e.g. the compact invariant circle $\{y=0\}$ of Example §ex:worked — then the *Schwartzman asymptotic cycle* $A_\mu\in H_1(M;\mathbb R)$, defined by $\langle[\omega],A_\mu\rangle=\int_M\omega(S)\,d\mu$ for every closed $\omega$ [schwartzman], pairs with the witness as
 $$
@@ -415,7 +415,7 @@ $$
 $$
 the $\mu$-average of the circulation density $\eta_S(S)$. The integrand of an exact form averages to zero by invariance, so this depends only on the class $[\eta_S]$: it re-expresses the existing $H^1\times H_1$ pairing, dynamically averaged, and introduces no new invariant. If $\mu$ is moreover ergodic, then for $\mu$-a.e. $x$ it equals the orbit time-average $\lim_{T\to\infty}\tfrac1T\oint_{\gamma|[0,T]}\eta_S$ (Birkhoff; for a merely invariant $\mu$ the a.e. time-average is the conditional expectation onto the invariant $\sigma$-algebra, with the same $\mu$-integral but generally non-constant); if the recurrent dynamics is uniquely ergodic the equality holds for every $x$ (the rigid rotation on $\{y=0\}$ is uniquely ergodic). For a periodic orbit of time-period $T$, $A_\gamma=[\gamma]/T$ and $\langle[\eta_S],A_\gamma\rangle=\tfrac1T\oint_\gamma\eta_S$, the *asymptotic circulation rate* (de~Rham period per unit time). On the globally-closed branch $\eta_S=\omega_S=S^\flat$, so $\eta_S(S)=\langle S,S\rangle=\|S\|^2$ and $\langle[\eta_S],A_\mu\rangle=\int_M\|S\|^2\,d\mu$, the time-averaged squared spin speed (rate $1$ in the example). The reading is one-way: nonzero mean circulation forces $[\eta_S]\neq0$ and $A_\mu\neq0$ (hence $[\gamma]\neq0$ in the periodic/uniquely-ergodic case, where $A_\mu$ is proportional to $[\gamma]$); it yields no converse — by Proposition §prop:complete a nonzero class may annihilate $A_\mu$ — and so adds no sufficiency. On $H^1_\mathrm{dR}(M)=0$ (Example §ex:s2) the pairing vanishes identically, inheriting the blindness of Proposition §prop:complete; and $A_\mu$ depends on the choice of $\mu$, not an $S$-canonical number unless the recurrent dynamics is uniquely ergodic. In particular $A_\mu$ recasts the hand-fed recurrence loop above as an invariant-measure average — an intrinsic substitute for loop selection on the recurrent set.
 
-## Results, scope, and open problems {#sec:scope}
+## Results, scope, and open problems
 
 **Proven.**
 The spin layer is an instance of the forgetful-separation pattern: the fibre over a fixed gradient
