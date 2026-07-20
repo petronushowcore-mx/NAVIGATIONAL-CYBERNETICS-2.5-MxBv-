@@ -1,0 +1,18 @@
+# Signatures, timestamps and manifests are byte-exact artifacts. Without this, a Windows
+# checkout rewrites their line endings and every verification fails against a file that looks
+# fine — the corpus ships 18 of them, so the failure would be silent and repo-wide.
+*.sig       -text
+*.asc       -text
+*.ots       -text
+*.sha256    -text
+SHA256SUMS  -text
+
+# Binary payloads: never touched, never diffed as text.
+*.pdf       -text -diff
+*.png       -text -diff
+*.jpg       -text -diff
+*.zip       -text -diff
+*.gpg       -text -diff
+
+# Prose stays LF in the repository regardless of the checkout platform.
+*.md        text eol=lf
