@@ -1,0 +1,1120 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{microtype}
+\usepackage[margin=1in]{geometry}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{hypothesis}[theorem]{Hypothesis}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{convention}[theorem]{Convention}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{example}[theorem]{Example}
+
+\newcommand{\dR}{\mathrm{dR}}
+\newcommand{\Omop}{\Omega_{\mathrm{op}}}
+\newcommand{\Omres}{\Omega^{\mathrm{res}}}
+\newcommand{\Sigspin}{\Sigma_{\mathrm{spin}}}
+\DeclareMathOperator{\opskew}{skew}
+
+\title{Two Channels, Three Readouts:\\
+A Typing Refinement of Structural Spin}
+\author{Maksim Barziankou}
+\date{July 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Structural spin is the non-gradient layer \(S\) in a flow
+\(\dot x=-\nabla V+S\).  Its projection-relative signature has two formally
+independent components: a local differential channel \(d(S^\flat)\), whose
+half is operational spin, and a global cohomological channel
+\([\eta_S]\in H^1_{\dR}(M)\), whose periods provide winding witnesses.
+This note separates that two-channel structure from three scalar readout
+families---period, path norm/amplitude, and vorticity flux---and from a
+fourth object, the dynamic residual used in drift or cost ledgers.
+
+The distinction is load-bearing.  A non-zero period forces a positive
+path norm when both are read from the same declared one-form; this is
+the triangle inequality, not a lower bound on vorticity.  Conversely,
+neither a path norm nor a vorticity flux determines the cohomology class.
+Explicit local-only and topological-only examples show that the two
+channels are logically independent over the class of all declared signature
+data, while an equal-norm collision on a flat torus shows that an
+amplitude-only monitor is incomplete for winding.  On the compact
+admissible branch, the topological-only sector remains premise-gated by
+the harmonic obstruction space \(W_V\).  A registered finite spanning
+family of harmonic-evaluation covectors reduces this gate exactly to the
+zero test \(Ea=0\), so algebraic independence is not confused with
+unrestricted realizability.
+
+The resulting typing principle requires every bridge from structural
+spin to a measured rotation index, dynamic residual, or maintenance cost
+to declare its probe and observation map.  Applied to cortical rotating
+waves, it yields a narrow empirical hypothesis: winding can collapse
+while \(2\text{--}8\) Hz amplitude remains above a calibrated detection
+floor and within a predeclared equivalence margin.  The dual local-only arm uses an antisymmetric-Jacobian score defined
+without explicitly consuming the registered amplitude functional, a positive
+instrument/effect floor, and an exchangeability-calibrated rank threshold.
+The stronger \emph{survives-but-dead} verdict additionally requires both an
+independent viability/continuation control and a predeclared
+identity-witness bridge.
+\end{abstract}
+
+\bigskip
+\noindent\footnotesize
+\textbf{License \& attribution.}\ \copyright~2026 Maksim Barziankou.
+Licensed under
+\href{https://creativecommons.org/licenses/by-nc-nd/4.0/}{CC\,BY-NC-ND\,4.0}.
+\par\smallskip
+\noindent\textbf{DOI.}\ \href{https://doi.org/10.17605/OSF.IO/69FE2}{10.17605/OSF.IO/69FE2}.
+\par\smallskip
+\noindent No patent license is granted.  Part of the
+\emph{Navigational Cybernetics~2.5} research programme.  This is a
+standalone companion to \emph{Structural Spin as a Forgetful Separation
+over Dissipative Dynamics, with a Cohomological Obstruction to Identity
+Transfer}, DOI:10.17605/OSF.IO/94GWQ.
+\normalsize
+\bigskip
+
+\section{Purpose and relation to the preceding work}
+
+The preceding structural-spin paper established a faithful-not-full
+forgetful separation over a gradient skeleton, a cohomological witness
+for topological identity transfer, the necessity/blindness limits of that
+witness, and a compact-branch obstruction to eliminating operational
+spin while preserving an admissible non-zero class
+\cite{structural}.  It also stated the central decomposition: one
+non-gradient layer has a local vorticity channel and a global
+cohomological channel.
+
+The present note does not replace those results.  It resolves a narrower
+typing ambiguity created when the phrases \emph{local channel},
+\emph{spin magnitude}, \emph{vorticity flux}, and \emph{residual spin}
+are allowed to stand for one another.  They do not have the same type.
+The correction can be stated in one line:
+\[
+\boxed{\begin{gathered}
+\text{one carrier}\ \longrightarrow\ \text{two structural channels}\\[-1pt]
+\text{three readout families}\ \longrightarrow\ \text{an explicitly bridged dynamic ledger}
+\end{gathered}}
+\]
+
+This separation sharpens the spin-channel bridge \cite{bridge}, the
+physical operational-spin construction \cite{operational}, and the
+consolidated NC2.5 programme statement \cite{nc25}.  It also isolates
+exactly what a rotating-wave
+experiment can test without importing the identity semantics of the
+abstract theory.
+
+\section{Carrier and structural signature}
+
+Let \((M,g)\) be an oriented Riemannian manifold, let \(\nabla\) denote its
+Levi-Civita connection, and let
+\[
+F=-\nabla V+S,\qquad \omega_S:=S^\flat.
+\]
+The metric is fixed; the musical isomorphism and all norm statements are
+relative to \(g\).  A splitting \(F=-\nabla V+S\) supplies a representative,
+but the signature below is invariant under its gauge once the selector is
+fixed: the substitution \((V,S)\mapsto(V+u,S+\nabla u)\) leaves \(F\) unchanged
+while replacing \(\omega_S\) by \(\omega_S+du\).  Throughout,
+the exterior derivative of a \(1\)-form uses the convention
+\[
+d\omega(X,Y)=X\omega(Y)-Y\omega(X)-\omega([X,Y]),
+\]
+so that \(d(-y\,dx+x\,dy)=2\,dx\wedge dy\); the factor \(\tfrac12\) in
+Definition~\ref{def:signature} is stated relative to this convention and
+changes under the alternating normalization.  On a compact oriented
+boundaryless manifold, Hodge theory \cite{warner} gives
+\[
+\omega_S=df+\delta\beta+h.
+\]
+On the alternative closed-component branch, assume a fixed declared linear
+projection
+\[
+P_{\mathrm{cl}}:\Omega^1(M)\longrightarrow Z^1(M),\qquad
+Z^1(M):=\ker\!\left(d:\Omega^1(M)\to\Omega^2(M)\right),
+\]
+and set \(\eta_S:=P_{\mathrm{cl}}(\omega_S)\).  Require
+\(P_{\mathrm{cl}}\circ P_{\mathrm{cl}}=P_{\mathrm{cl}}\), and require the map
+to preserve cohomology on closed inputs: for every closed \(\alpha\in
+\Omega^1(M)\), the form \(P_{\mathrm{cl}}(\alpha)-\alpha\) is exact.  (The
+harmonic projection satisfies both; note that it is \emph{not} the identity
+on \(Z^1(M)\), so idempotence may not be strengthened to
+\(P_{\mathrm{cl}}|_{Z^1}=\mathrm{id}\).)  These conditions constrain \(P_{\mathrm{cl}}\) only on closed inputs.  They
+nevertheless make the splitting gauge harmless: linearity and closed-input
+cohomology preservation give
+\([P_{\mathrm{cl}}(du)]=[du]=0\), while
+\(d(\omega_S+du)=d\omega_S\).  Thus the signature below is an invariant of
+the declared pair \((F,P_{\mathrm{cl}})\), even though its representative
+\(\eta_S\) may change.  The selector remains part of the type: when
+\(\omega_S\) is not closed, different admissible selectors may assign
+different classes to the same \(F\), and those classes may not be compared.
+In the compact case one may take
+\(\eta_S=h\), the harmonic projection, which satisfies the requirement:
+for closed \(\alpha=df+\delta\beta+h\) one has \(d\delta\beta=0\), since
+\(d\alpha=0\) and \(ddf=dh=0\), whence
+\(\lVert\delta\beta\rVert^2=\langle\beta,d\delta\beta\rangle=0\),
+\(\delta\beta=0\) and \(\alpha-h=df\) is exact.
+
+De Rham cohomology is used throughout in the sense of \cite{bott-tu}.
+
+\begin{definition}[Structural-spin signature]\label{def:signature}
+On the declared-selector branch, the \emph{structural-spin signature} is
+\[
+\Sigspin(F;P_{\mathrm{cl}})
+  :=\bigl([\eta_S],d\omega_S\bigr)
+  \in H^1_{\dR}(M)\times\Omega^2(M).
+\]
+On the compact Hodge branch the harmonic projection is canonically fixed by
+\(g\); there we suppress it and write \(\Sigspin(F)\).  Selector arguments
+may be suppressed nowhere else.  The \emph{topological channel} is
+\([\eta_S]\).  The \emph{local differential channel} is \(d\omega_S\),
+with operational spin
+\[
+\Omop:=\frac12d\omega_S.
+\]
+\end{definition}
+
+Tensorially, let \(K_{\mathrm{op}}\in\operatorname{End}(TM)\) be the
+skew-adjoint endomorphism defined by
+\[
+g(K_{\mathrm{op}}X,Y)=\Omop(X,Y)=\frac12d\omega_S(X,Y).
+\]
+If \(J_F(X):=\nabla_XF\) and \(J_F^{*g}\) is its metric adjoint, then
+\[
+K_{\mathrm{op}}=\frac12(J_F-J_F^{*g}).
+\]
+Indeed, metric compatibility gives \((\nabla_X\omega_S)(Y)=g(\nabla_XS,Y)\)
+and torsion-freeness gives
+\(d\omega_S(X,Y)=(\nabla_X\omega_S)(Y)-(\nabla_Y\omega_S)(X)\), so that
+\(d\omega_S(X,Y)=g\bigl((J_S-J_S^{*g})X,Y\bigr)\) for \(J_S(X):=\nabla_XS\).
+Torsion-freeness also makes \(\nabla^2V\) symmetric, so the gradient layer is
+self-adjoint and contributes nothing to the skew part:
+\(J_F-J_F^{*g}=J_S-J_S^{*g}\).  The local differential channel is therefore
+an invariant of \(F\) alone.  The topological channel is also splitting-gauge
+invariant for fixed \(P_{\mathrm{cl}}\), but remains selector-relative; hence
+the full minimal type is \((F,P_{\mathrm{cl}})\), or \(F\) relative to the
+fixed metric on the compact Hodge branch.
+Only in an orthonormal frame does this become the matrix formula
+\(K_{\mathrm{op}}=\tfrac12(J_F-J_F^\top)\).
+The physical construction in \cite{operational} applies the same
+antisymmetrization type, \(\opskew(A):=\tfrac12(A-A^{*g})\), to a
+directed-change field \(J_t=\partial_tu_t\):
+\(\Omega_t=\opskew(\nabla J_t)\).  The fields \(F\) and \(J_t\) are not
+thereby identified; what is shared is the operation and its tensor type.
+
+\begin{remark}[Premise-minimal scope]
+Architectural spin can be asserted more weakly as an obstruction to a
+global scalar-gradient realization.  Definition~\ref{def:signature}
+requires the additional representative/regularity branch.  Without it,
+neither component of the displayed pair may be silently manufactured.
+\end{remark}
+
+\section{Formal independence of the two channels}
+
+\begin{proposition}[Channel independence]\label{prop:independence}
+The two vanishing conditions are logically independent over the class of
+all declared signature data---quadruples \((M,g,F,P_{\mathrm{cl}})\) on the
+selector branch and triples \((M,g,F)\) on the compact Hodge branch: neither
+\[
+d\omega_S\neq0\ \Longrightarrow\ [\eta_S]\neq0
+\qquad\text{nor}\qquad
+[\eta_S]\neq0\ \Longrightarrow\ d\omega_S\neq0
+\]
+holds universally over that class.
+\end{proposition}
+
+\begin{proof}
+Work on the single flat torus
+\(M=\mathbb R^2/(2\pi\mathbb Z)^2\) with its standard metric and canonical
+Hodge projection.  Put \(V=0\), so \(F=S\), for both witnesses.  For the
+local-only direction take
+\(S_{\mathrm L}=\sqrt2\cos y\,\partial_x\).  Then
+\[
+\omega_{\mathrm L}=\sqrt2\cos y\,dx,\qquad
+d\omega_{\mathrm L}=\sqrt2\sin y\,dx\wedge dy\neq0,
+\]
+while the harmonic projection of \(\omega_{\mathrm L}\) is zero because its
+coefficient has zero torus mean.  Thus \([\eta_{\mathrm L}]=0\).
+
+For the topological-only direction on the same \((M,g)\), take
+\(S_{\mathrm T}=\partial_x\).  Then
+\[
+\omega_{\mathrm T}=dx,\qquad d\omega_{\mathrm T}=0,\qquad
+\oint_{\{y=0\}}dx=2\pi.
+\]
+Since \(dx\) is harmonic, \([\eta_{\mathrm T}]=[dx]\neq0\), while the local
+differential channel vanishes.  Both vector fields are non-gradient and
+divergence-free; divergence-freeness is an additional property of these
+witnesses, not part of the definition of non-gradient.
+\end{proof}
+
+\begin{corollary}[No channel substitution]\label{cor:no-sub}
+No inference from the non-vanishing of one channel to the non-vanishing of
+the other is licensed by the signature alone: a local vorticity detector is
+not a complete topological-witness detector, and a winding detector is not a
+complete local-vorticity detector.  In particular, the phrase \emph{two
+channels} refers to \(([\eta_S],d\omega_S)\), not to winding and amplitude.
+\end{corollary}
+
+\begin{remark}[Scope of the independence claim]
+The proof realizes both one-channel directions on one fixed compact
+\((M,g)\), on the canonical Hodge branch.  The same torus also realizes the
+jointly non-zero pattern with
+\(\omega=(1+\sqrt2\cos y)\,dx\).  A zero--zero form such as
+\(d(\cos x)\) is exact and therefore gradient; it lies outside the declared
+non-gradient carrier class.  Hence all three admissible non-zero sign patterns
+occur on this one compact manifold, without a claim that a fourth
+non-gradient zero--zero pattern exists.
+\end{remark}
+
+\section{Three readout families}
+
+Structural channels are not yet scalar measurements.  A measurement
+requires a probe.
+
+\begin{definition}[Typed readouts]\label{def:readouts}
+Let \(\gamma:[0,T]\to M\) be a piecewise \(C^1\) closed curve.  Let
+\(\mathcal P\) be an oriented compact piecewise \(C^1\) \(2\)-chain
+(or embedded probe surface, possibly with boundary) on which the
+pullback of \(d\omega_S\) is integrable.  For a declared one-form
+\(\alpha\), define
+\begin{align}
+W_\gamma(\alpha)
+  &:=\oint_\gamma\alpha,
+  &&\text{period/winding readout},\label{eq:period}\\
+A_\gamma(\alpha)
+  &:=\int_0^T
+       \bigl|\alpha_{\gamma(t)}(\dot\gamma(t))\bigr|\,dt,
+  &&\text{path-amplitude/total-variation readout},\label{eq:norm}\\
+Q_{\mathcal P}(\omega_S)
+  &:=\int_{\mathcal P}d\omega_S,
+  &&\text{oriented vorticity-flux readout}.\label{eq:flux}
+\end{align}
+Here \(W_\gamma\) and \(A_\gamma\) are functionals of \(\alpha\), and
+\(Q_{\mathcal P}\) is a functional of \(\omega_S\); their displayed
+evaluated values are real scalars.  When \(\alpha=\eta_S\) is closed,
+\(W_\gamma(\eta_S)\) depends only on the homology class of \(\gamma\).
+The readout \(A_\gamma\) is invariant under orientation-preserving
+reparametrization, by the change of variables
+\(|\alpha(\dot\gamma\circ\varphi)\varphi'|\,ds=|\alpha(\dot\gamma)|\,dt\),
+so it depends only on the traversed path and not on the chosen
+\([0,T]\); it is a \emph{seminorm} in \(\alpha\), since
+\(A_\gamma(\alpha)=0\) whenever \(\alpha\) annihilates \(\dot\gamma\)
+along \(\gamma\), without \(\alpha=0\).
+All probes and geometries remain declared.  If \(\mathcal P\) is a
+closed \(2\)-cycle and \(\omega_S\) is globally defined on it, then
+\(Q_{\mathcal P}(\omega_S)=0\) by Stokes.  Throughout this note
+\(\omega_S\) is globally defined, so a non-zero flux readout is used only
+for a chain with \(\partial\mathcal P\neq0\), where
+\[
+Q_{\mathcal P}(\omega_S)=W_{\partial\mathcal P}(\omega_S).
+\]
+Here \(W\) is extended additively over the components of the boundary
+cycle.  Patchwise connections, distributional singularities and removed-core
+fluxes require a separate carrier definition and are outside the present
+scope.  Stokes is the one determinate relation holding between two of these
+readouts without further model data.
+\end{definition}
+
+\begin{proposition}[The norm inequality is not a vorticity
+inequality]\label{prop:norm}
+For every declared pair \((\gamma,\alpha)\),
+\[
+A_\gamma(\alpha)\ge |W_\gamma(\alpha)|.
+\]
+If \(\alpha=\eta_S\), a non-zero topological period therefore forces a
+positive path norm of that representative.  It does not force
+\(d\omega_S\neq0\), and it supplies no lower bound on
+\(|Q_{\mathcal P}(\omega_S)|\).
+\end{proposition}
+
+\begin{proof}
+The displayed inequality is
+\[
+\int_0^T|\alpha(\dot\gamma)|\,dt
+ \ge
+\left|\int_0^T\alpha(\dot\gamma)\,dt\right|,
+\]
+the ordinary triangle inequality.  The topological-only member of
+Proposition~\ref{prop:independence} has non-zero period and positive path
+norm but \(d\omega_S=0\), hence every vorticity-flux readout is zero.
+\end{proof}
+
+\begin{remark}[Instrument compatibility]
+If an experiment measures amplitude from a signal other than the
+one-form used for the period, Proposition~\ref{prop:norm} does not apply
+until a reconstruction map between those observables is declared.  The
+same name \emph{rotation} is not such a map.
+\end{remark}
+
+\begin{proposition}[An amplitude-only collision]\label{prop:collision}
+A monitor reading only the path amplitude of the carrier \(\omega_S\)
+cannot recover the topological channel, even on a fixed probe manifold and
+loop, and even on the compact Hodge branch: two divergence-free,
+non-gradient carriers with equal amplitude readouts can have topological
+classes \(0\) and \([dx]\neq0\).
+\end{proposition}
+
+\begin{proof}
+Take the flat torus
+\(M=(\mathbb R/2\pi\mathbb Z)^2\), with coordinates \((x,y)\), and the
+oriented loop
+\[
+\gamma(t)=(t,\pi/4),\qquad 0\le t\le2\pi.
+\]
+Let
+\[
+\omega_1=dx,\qquad
+\omega_0=\sqrt2\cos y\,dx.
+\]
+Along \(\gamma\), both forms evaluate to \(1\) on \(\dot\gamma\), hence
+\[
+A_\gamma(\omega_1)=2\pi=A_\gamma(\omega_0).
+\]
+The harmonic \(1\)-forms on the flat torus are spanned by \(dx,dy\).
+The harmonic projection of \(\omega_1\) is \(dx\), whereas that of
+\(\omega_0\) is zero: its \(dx\)-coefficient has zero torus average and its
+\(dy\)-coefficient vanishes.  Thus
+\[
+\eta_1=dx,\qquad \eta_0=0,
+\qquad
+W_\gamma(\eta_1)=2\pi,\qquad W_\gamma(\eta_0)=0.
+\]
+Both associated fields are divergence-free.  Moreover
+\[
+d\omega_0=\sqrt2\sin y\,dx\wedge dy\neq0,
+\]
+and on \(\gamma\) its coefficient equals \(1\); consequently
+\(\omega_0\) is genuinely non-gradient and carries a non-zero local
+differential channel despite its zero topological channel.  The collision
+therefore remains entirely inside the declared non-gradient carrier class:
+an amplitude-only monitor assigns the same value to opposite topological
+witness states.
+\end{proof}
+
+\begin{remark}[Why the readouts must be typed to their sources]
+The collision is between \(A_\gamma(\omega_i)\), read from each carrier,
+and \(W_\gamma(\eta_i)\), read from its harmonic component.  It is not a
+counterexample to Proposition~\ref{prop:norm}, which compares two readouts
+of the \emph{same} declared one-form: for each \(\eta_i\) separately,
+\(A_\gamma(\eta_i)\ge|W_\gamma(\eta_i)|\).  The two statements are
+compatible precisely because their sources differ, which is the typing
+point of Section~\ref{sec:bridge}.
+\end{remark}
+
+\section{The dynamic ledger and the typed bridge}\label{sec:bridge}
+
+The residual variable used in a drift law is a fourth object.  Write it
+as \(\Omres_t\in\mathcal R_t\), where \(\mathcal R_t\) is the declared
+residual space.  A ledger statement has, schematically, the form
+\[
+D_T\ge c_1\int_0^T\|\Omres_t\|_{\mathcal R_t}\,dt,
+\]
+where \(D_T\) is the declared accumulated drift or maintenance budget over
+\([0,T]\) and \(c_1>0\) is a declared calibration constant with units
+\[
+[c_1]=\frac{[D_T]}{[\lVert\Omres\rVert]\, [\mathrm{time}]};
+\]
+neither its value nor its units are fixed by the structural signature.
+Nothing in Definition~\ref{def:signature} makes
+\(\Omres\) equal to \(d\omega_S\), its flux, or a path norm.
+
+\begin{convention}[Typed bridge principle]\label{thm:typed-bridge}
+Let a structural-spin model use any of the following in a measurement,
+drift, or cost law:
+\[
+[\eta_S],\quad d\omega_S,\quad
+W_\gamma(\alpha),\quad A_\gamma(\alpha),\quad
+Q_{\mathcal P}(\omega_S),\quad \Omres.
+\]
+Then:
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=2.2em]
+  \item the first two are the structural channels;
+  \item \(W_\gamma(\alpha),A_\gamma(\alpha)\), and
+        \(Q_{\mathcal P}(\omega_S)\) are evaluated probe-dependent
+        scalar readouts, not further spin objects;
+  \item the period--norm inequality of Proposition~\ref{prop:norm} is
+        licensed when both readouts use the same declared one-form and
+        locus; that proposition licenses no inequality between readouts of
+        \emph{different} declared one-forms, and any such relation requires
+        its own derivation;
+  \item any relation between \(d\omega_S\) or
+        \(Q_{\mathcal P}(\omega_S)\) and \(\Omres\) requires an
+        explicit observation map, regulated
+        estimator, or sealed dependence;
+  \item any scalar cost law must name its readout mode and calibration.
+\end{enumerate}
+The readouts are related to one another only by Stokes,
+\(Q_{\mathcal P}(\omega_S)=W_{\partial\mathcal P}(\omega_S)\), and by
+Proposition~\ref{prop:norm}; no equality between a structural channel and
+the dynamic residual follows from the structural signature alone.
+\end{convention}
+
+\begin{remark}[Justification]
+Items (i) and (ii) record type membership; the codomains already separate
+the objects:
+\[
+[\eta_S]\in H^1_{\dR}(M),\quad
+d\omega_S\in\Omega^2(M),\quad
+W_\gamma(\alpha),A_\gamma(\alpha),Q_{\mathcal P}(\omega_S)
+\in\mathbb R,\quad \Omres_t\in\mathcal R_t.
+\]
+The scalar readouts arise only after evaluation on a curve, normed
+locus, or surface.  Item (iii) is a restatement of
+Proposition~\ref{prop:norm}; items (iv) and (v) are declared modelling
+requirements rather than propositions.  Proposition~\ref{prop:norm} gives
+the sole universal period--norm relation used here, and
+Proposition~\ref{prop:independence} rules out either structural
+non-vanishing implication.  A map such as
+\[
+\mathcal O_t:\Omega^2(M)\longrightarrow\mathcal R_t
+\quad\text{or}\quad
+\mathcal B_t:\mathbb R\longrightarrow\mathcal R_t,\qquad
+\Omres_t=\mathcal B_t\!\left(Q_{\mathcal P}(\omega_S)\right)
+\]
+is therefore additional model data.  The same is true of a cost
+functional
+\[
+\mathcal C
+ =c_W|W_\gamma(\eta_S)|+c_AA_\gamma(\alpha)
+  +c_Q|Q_{\mathcal P}(\omega_S)|,
+\]
+whose coefficients, units, probes, and active terms must be declared.
+\end{remark}
+
+\begin{corollary}[Correct reading of the boundary norm law]
+Let \(\sigma_H\) and \(\Lambda_{\mathrm{loc}}\) be the boundary period and
+the compatible discrete path norm of \cite{structural}.  The implication
+\[
+\sigma_H\neq0\quad\Longrightarrow\quad
+\Lambda_{\mathrm{loc}}>0
+\]
+is valid when \(\sigma_H\) is a period and
+\(\Lambda_{\mathrm{loc}}\) is the compatible path norm.  It is not an
+identity between topological spin and operational spin, and it does not
+identify \(\Lambda_{\mathrm{loc}}\) with \(\Omres\).
+\end{corollary}
+
+\section{Compact admissibility and the topological-only sector}
+\label{sec:compact}
+
+Formal independence does not imply that every pair of channel values is
+realizable under every admissibility package.  The compact branch of
+\cite{structural} makes this precise.
+
+Let \(M\) be compact and boundaryless and \(V\in C^\infty(M)\).  Write \(\mathcal H^1(M)\) for
+the harmonic \(1\)-forms and
+\(\Phi:\mathcal H^1(M)\xrightarrow{\sim}H^1_{\dR}(M)\) for the Hodge
+isomorphism.  Define
+\[
+L:\mathcal H^1(M)\to C^\infty(M),\qquad
+L(h)=h(\nabla V),
+\]
+and
+\[
+W_V:=\Phi(\ker L)\subseteq H^1_{\dR}(M).
+\]
+
+\begin{proposition}[Premise gate for topological-only spin]
+\label{prop:WV}
+Say that \(S\) \emph{carries} the class \(c\) if \([\eta_S]=c\).  A class
+\(c\neq0\) is carried by a divergence-free, operational-spin-free field
+satisfying \(\langle S,\nabla V\rangle=0\) pointwise if and only if
+\(c\in W_V\).  (The equivalence also holds for \(c=0\); the hypothesis
+\(c\neq0\) serves only to exclude the trivial witness \(S=0\).)
+\end{proposition}
+
+\begin{proof}
+Divergence-free and operational-spin-free mean
+\(\delta\omega_S=0\) and \(d\omega_S=0\), so
+\(\Delta\omega_S=(d\delta+\delta d)\omega_S=0\) and \(\omega_S\) is
+harmonic; this step uses neither compactness nor boundarylessness.  Both
+are used next, for uniqueness: if a harmonic \(h\) is exact, \(h=d\alpha\),
+then \(\lVert h\rVert^2_{L^2}=\langle d\alpha,h\rangle
+=\langle\alpha,\delta h\rangle=0\) by integration by parts on a compact
+boundaryless \(M\), so \(\mathcal H^1(M)\cap\operatorname{im}d=0\) and each
+class has exactly one harmonic representative.  Hence \(\omega_S=h_c\), and
+since \(\omega_S\) is already harmonic, \(\eta_S=h=\omega_S\) on this
+branch, so \(S\) carries \([\omega_S]\).  Pointwise admissibility is
+precisely \(h_c(\nabla V)=0\), equivalently \(h_c\in\ker L\).
+
+Conversely, let \(c\in W_V\), so \(c=\Phi(h)\) with \(h\in\ker L\);
+injectivity of \(\Phi\) forces \(h=h_c\).  Put \(S:=h_c^\sharp\).  Then
+\(\omega_S=h_c\) is harmonic, so \(d\omega_S=0\) (operational-spin-free)
+and \(\delta\omega_S=0\) (divergence-free); moreover
+\(\langle S,\nabla V\rangle=h_c(\nabla V)=L(h_c)=0\) pointwise, and
+\([\eta_S]=[h_c]=c\).  For \(c\neq0\) we get \(h_c\neq0\), so
+\(S\not\equiv0\).
+\end{proof}
+
+\begin{corollary}[Finite exact \(W_V\) arm]\label{cor:WV-arm}
+For the fixed Riemannian metric and Hodge identification above, let
+\(h_1,\ldots,h_b\) be a registered harmonic basis and define
+\[
+F_V(p)\in\mathcal H^1(M)^*,\qquad F_V(p)(h):=h_p(\nabla V_p).
+\]
+Let \(p_1,\ldots,p_m\in M\) satisfy the spanning-certificate premise
+\[
+\operatorname{span}\{F_V(p_j):1\le j\le m\}
+=\operatorname{span}\{F_V(p):p\in M\}.
+\]
+Set \(E_{ji}:=h_i(\nabla V)(p_j)\).  For
+\[
+c=\Phi\!\left(\sum_{i=1}^b a_i h_i\right),
+\qquad a=(a_1,\ldots,a_b)^\top\ne0,
+\]
+one has
+\[
+c\in W_V\quad\Longleftrightarrow\quad Ea=0.
+\]
+Consequently
+\[
+\rho_V^{(\mathbf h,P)}(c):=\lVert Ea\rVert_\infty,
+\qquad \mathbf h=(h_1,\ldots,h_b),\quad P=(p_1,\ldots,p_m),
+\]
+written \(\rho_V(c)\) whenever the registration \((\mathbf h,P)\) is fixed,
+is an executable observable with exact threshold zero when the class
+coordinates and matrix entries are exact symbolic or rational data.  A
+basis change \(\mathbf h'=\mathbf h T\) gives \(E'=ET\) and
+\(a'=T^{-1}a\), hence \(E'a'=Ea\): for a fixed ordered sample tuple the
+whole residual vector, and therefore \(\rho_V\), is basis-independent.
+Its zero set is also invariant under non-zero row rescaling and replacement
+of \(P\) by another certified spanning sample family.  The positive
+magnitude does change under row rescaling and sample choice (enlarging
+\(P\) can only increase it) and is positively homogeneous of degree one in
+\(c\), so it induces no meaningful comparison between classes.  Numerical
+harmonic solvers require a separately derived error
+bound or interval certificate and are outside this exact arm.  Under the
+stated certificates, a declared membership with \(\rho_V(c)>0\), or a
+declared non-membership with \(\rho_V(c)=0\), falsifies the registered
+claim.  The spanning-certificate premise is load-bearing in exactly one
+direction: \(Ea\neq0\) exhibits a point at which \(h_a(\nabla V)\neq0\) and
+so excludes membership without any span premise, whereas \(Ea=0\) bounds
+\(h_a(\nabla V)\) only on the sampled points.  Accordingly, without that
+premise a non-zero sampled residual still excludes membership, but a zero
+sampled residual is only non-rejection on the sampled points.
+\end{corollary}
+
+\begin{proof}
+For \(h_a=\sum_i a_i h_i\), the vector \(Ea\) is
+\((F_V(p_1)(h_a),\ldots,F_V(p_m)(h_a))^\top\).  Its vanishing annihilates
+the registered span, which equals the span of every \(F_V(p)\); hence
+\(h_a(\nabla V)=0\) pointwise.  The reverse implication is immediate.
+Proposition~\ref{prop:WV} completes the equivalence.
+\end{proof}
+
+\begin{example}[Registered flat-torus instance]\label{ex:WV-torus}
+Take
+\(M=(\mathbb R/2\pi\mathbb Z)^2\) with
+\(g=dx^2+dy^2\), coordinates \((x,y)\), \(V=\cos x\), and harmonic
+basis \((dx,dy)\).  Then
+\[
+L(a\,dx+b\,dy)=-a\sin x.
+\]
+In the dual basis \(F_V(x,y)=(-\sin x,\,0)\) for every \((x,y)\in M\), so
+the whole evaluation family lies on a single line and one point discharges
+the spanning certificate: \(p_1=(\pi/2,0)\) gives the spanning row
+\(E=(-1,0)\).  (This is a feature of \(\partial_yV\equiv0\), not a general
+sufficiency of one sample.)  Thus \(W_V=\operatorname{span}\{[dy]\}\),
+consistently with \(\dim W_V=b_1-1=1\), and every
+non-zero class \(c_{a,b}=[a\,dx+b\,dy]\) passes the exact gate if and
+only if \(a=0\).  This is the registered exact-arithmetic instance used
+by the companion code; the code does not authenticate the harmonic-basis
+or spanning certificates themselves.
+\end{example}
+
+Thus the topological-only sector is real but constrained.  With
+\(F_V(p)\) as in Corollary~\ref{cor:WV-arm}, the preceding work proves
+\[
+\dim W_V
+=b_1(M)-\dim_{\mathbb R}
+  \operatorname{span}\{F_V(p):p\in M\},
+\]
+since \(\ker L\) is the annihilator in \(\mathcal H^1(M)\) of that span,
+which is finite-dimensional as a subspace of the \(b\)-dimensional dual
+\(\mathcal H^1(M)^*\) despite its infinite index set.
+
+The standing hypothesis of Proposition~\ref{prop:WV} and
+Corollary~\ref{cor:WV-arm} is \(V\in C^\infty(M)\).  The genericity claim
+has the following corrected \(C^k\) form.  For \(k\ge1\) and \(V\in C^k(M)\),
+let
+\[
+L_V:\mathcal H^1(M)\longrightarrow C^{k-1}(M),
+\qquad L_V(h)=h(\nabla V),
+\qquad W(V):=\Phi(\ker L_V).
+\]
+Then
+\[
+\{V\in C^k(M):W(V)=\{0\}\}
+\]
+is open and dense in \(C^k(M)\).  Here is the short proof, included to
+avoid relying on the predecessor wording that placed a \(C^\infty\)
+subset inside the \(C^k\) topology.  If \(b_1(M)=0\) the claim is immediate.
+Otherwise fix a harmonic basis \(h_1,\ldots,h_b\).  Injectivity of \(L_V\)
+is equivalent to the existence of points \(p_1,\ldots,p_b\) for which
+\[
+\det\!\bigl[h_i(\nabla V)(p_j)\bigr]_{i,j=1}^b\neq0.
+\]
+This determinant depends continuously on the first jet of \(V\), proving
+openness.  For density, the evaluation covectors
+\(h\mapsto h_p(v)\), with \(p\in M\) and \(v\in T_pM\), span
+\(\mathcal H^1(M)^*\): a harmonic form annihilating all of them is zero.
+Choose distinct \(p_j\) and \(v_j\in T_{p_j}M\) whose evaluation covectors
+form a basis, and smooth bump functions \(\psi_j\) with disjoint supports
+and \(\nabla\psi_j(p_j)=v_j\).  For
+\(V_s=V_0+\sum_js_j\psi_j\), the displayed determinant is a polynomial in
+\(s=(s_1,\ldots,s_b)\) with non-zero top-degree coefficient.  Arbitrarily
+small generic \(s\) therefore makes it non-zero, proving density in every
+\(C^k\) topology with \(k\ge1\).
+
+This is a realizability obstruction on a specified compact admissible
+class, not a collapse of the two structural types.  Note its direction:
+for generic \(V\) the compact admissible topological-only sector is
+\emph{empty}, so
+positive instances such as Example~\ref{ex:WV-torus} must be exhibited by
+construction and never expected generically.
+
+\section{Identity, cortical waves, and the dissociation test}
+
+The topological channel carries identity only on the declared
+identity-transfer domain of \cite{structural}.  It does not follow that
+every non-zero winding in nature carries that semantic role.  The
+correct empirical move is to transport the invariant type first and test
+the proposed role separately.
+
+For each condition \(c\in\{\mathrm{pre},\mathrm{post}\}\), let
+\(U_c\) be the registered cortical domain and let
+\[
+z_B^{(c)}:=\mathcal H_B(x^{(c)}),\qquad
+a^{(c)}:=|z_B^{(c)}|,\qquad
+\phi_c:=z_B^{(c)}/|z_B^{(c)}|
+\]
+be the registered band-limited analytic signal, its amplitude and its
+phase on the phase domain \(D_c:=\{a^{(c)}>a_{\min}\}\), where the
+pointwise floor \(a_{\min}>0\) is fixed before inspection.  Write
+\(d\vartheta\) for the angular \(1\)-form normalized by
+\(\oint_{S^1}d\vartheta=2\pi\).  For a piecewise \(C^1\) loop
+\(\gamma_c\subset D_c\),
+\[
+n_{\gamma_c}
+  :=\frac{1}{2\pi}\oint_{\gamma_c}\phi_c^*(d\vartheta)\in\mathbb Z.
+\]
+This is the same invariant type---degree/winding around a puncture---as
+the topological readout above.  It is not literally the same physical
+carrier or the same identity certificate.
+
+For an executable discrete certificate, sample a complete oriented loop at
+\(p_0,\ldots,p_{N-1}\), obtaining noisy observed values
+\(z_i=z_B(p_i)\).  Independently register one cyclically glued,
+piecewise-\(C^1\), non-vanishing reference reconstruction \(\zeta\) on the
+oriented edges \(e_i:p_i\to p_{i+1}\).  The observed values need not be exact
+endpoint values of \(\zeta\).  Let \(\widetilde\vartheta_i^*\) be the chosen
+continuous phase lift of \(\zeta|_{e_i}\), write
+\[
+\delta_i^*:=\widetilde\vartheta_i^*(1)-\widetilde\vartheta_i^*(0),
+\qquad \theta_i:=\arg z_i,
+\]
+and set cyclically
+\[
+\Delta_i:=\operatorname{Arg}
+ \exp\!\bigl(\mathrm i(\theta_{i+1}-\theta_i)\bigr)\in(-\pi,\pi],
+\qquad
+\widehat n:=\frac1{2\pi}\sum_{i=0}^{N-1}\Delta_i.
+\]
+Register a within-condition reference-reconstruction/edge-lift certificate, an
+independently justified mesh/regularity bound \(b_\phi\), a certified per-edge
+\emph{linear, branch-coupled} observation error
+\(\varepsilon_{\mathrm{step}}\ge0\), an ambiguity margin
+\(0<\kappa<\pi\), and an integer tolerance
+\(0\le\varepsilon_{\mathbb Z}<1/2\).  The certificate records every real lift
+increment \(\delta_i^*\), pairs it with the observed principal increment on
+the declared branch, and either defines \(\zeta\) as the operational phase
+target or supplies a within-condition degree-preserving bridge from \(\zeta\)
+to \(\phi|_\gamma\).  Thus the next absolute value is on \(\mathbb R\), not a
+circular distance:
+\[
+|\delta_i^*|\le b_\phi,\qquad
+|\Delta_i-\delta_i^*|\le\varepsilon_{\mathrm{step}}
+\quad\text{for every }i.
+\]
+The numerical amplitude ledger records
+\[
+a_{\mathrm{obs,min}}:=\min_i|z_i|,
+\qquad
+a_{\mathrm{ref,min}}:=\inf_{t\in S^1}|\zeta(t)|.
+\]
+A winding value is certified only if both recorded minima strictly exceed the
+predeclared positive floor \(a_{\min}\), the certificates cover every edge, and
+\[
+b_\phi+\varepsilon_{\mathrm{step}}<\pi-\kappa,\qquad
+N\varepsilon_{\mathrm{step}}<\pi,\qquad
+\max_i|\Delta_i|\le b_\phi+\varepsilon_{\mathrm{step}},\qquad
+\bigl|\widehat n-\operatorname{round}(\widehat n)\bigr|
+ \le\varepsilon_{\mathbb Z}.
+\]
+The reference reconstruction satisfies
+\(n_{\mathrm{ref}}=(2\pi)^{-1}\sum_i\delta_i^*\in\mathbb Z\), while
+\[
+|\widehat n-n_{\mathrm{ref}}|
+ \le \frac{N\varepsilon_{\mathrm{step}}}{2\pi}<\frac12.
+\]
+Consequently
+\(n_{\mathrm{ref}}=\operatorname{round}(\widehat n)\); when the declared
+degree-preserving bridge is present this is also \(n_\gamma\).  The numerical
+reference steps, their branch coupling to the observations, the true-step
+bound and the aggregate error gate are all load-bearing: an integer residual
+by itself cannot exclude a reference/observation full-turn mismatch.  Failure
+of any certificate gives non-applicability, not zero winding.
+
+Cross-condition comparison uses an orientation-preserving registered
+correspondence \(T_j:\gamma_j^{\mathrm{pre}}\to
+\gamma_j^{\mathrm{post}}\), together with endpoint-specific annular
+phase-domain and singularity-tracking certificates.  It does \emph{not}
+assume a homotopy from \(\phi_{\mathrm{pre}}\) to
+\(\phi_{\mathrm{post}}\) through non-vanishing phase maps: such a homotopy
+would force equality of the two degrees.  If a time-resolved physical
+interpolation is studied, a degree change instead requires a zero-amplitude
+or singularity crossing in the intervening world tube; that crossing is a
+candidate mechanism to locate, not a premise to exclude.
+
+The Science study of brain-wide rotating waves \cite{ye} analyzes
+rotating phase waves primarily in the \(2\text{--}8\) Hz band, reports
+brain-wide coordination and behavioural recruitment, and finds that
+disrupting circular somatosensory wiring reduces the waves.  It treats
+rotation and oscillation amplitude together; it does not introduce the
+cohomological identity semantics or the typed separation above.
+
+For an empirical test, predeclare a spatial locus \(\mathcal U\), time
+window, calibration, band \(B=[2,8]\,\mathrm{Hz}\), and scalar amplitude
+functional \(\mathcal A_{\mathcal U,B}\) applied to the same registered
+analytic-signal magnitude:
+\[
+A_{\mathcal U,B}^{(c)}
+  :=\mathcal A_{\mathcal U,B}\!\left(a^{(c)}\right)
+  \in\mathbb R_{\ge0}.
+\]
+A different amplitude source requires an explicit observation bridge and
+a validation that the two estimators do not force winding and amplitude to
+co-vary.  Predeclare a calibrated detection floor \(A_{\min}>0\) and an
+observed-record equivalence margin
+\[
+0\le\delta_A<A_{\min}.
+\]
+The instrument calibration must resolve differences at that margin; if its
+uncertainty is larger, the arm is non-applicable rather than licensed to
+widen \(\delta_A\).  This criterion concerns the registered observed
+records.  It is not by itself a confidence statement about equality of
+latent population amplitudes.
+
+\begin{hypothesis}[Empirical dissociation criterion]\label{hyp:empirical}
+Let \(\{(\gamma_j^{\mathrm{pre}},\gamma_j^{\mathrm{post}},T_j)\}\) be a
+preregistered endpoint loop family, and let the evaluated loop be named in
+advance or selected under a preregistered multiplicity plan.  Require the complete observed/reference reconstruction, branch-coupled
+edge-lift and degree-preserving discrete certificate above in both
+conditions, using the same registered analytic-signal, loop, calibration
+and sampling pipeline, and
+require endpoint annular phase-domain and singularity-tracking certificates.
+Under those premises, a loop-local empirical realization of the separation
+has, for the evaluated loop,
+\[
+\begin{gathered}
+|n_{\gamma_j}^{\mathrm{pre}}|>0,\qquad
+n_{\gamma_j}^{\mathrm{post}}=0,\\
+\min\!\left\{A_{\mathcal U,B}^{(\mathrm{pre})},
+             A_{\mathcal U,B}^{(\mathrm{post})}\right\}\ge A_{\min},\\
+\left|A_{\mathcal U,B}^{(\mathrm{post})}
+      -A_{\mathcal U,B}^{(\mathrm{pre})}\right|
+   \le\delta_A.
+\end{gathered}
+\]
+This is observed-record \(\mathcal U\)-amplitude-preserved loss of winding
+on that loop.  It is loop-local in winding and \(\mathcal U\)-local in
+amplitude; only when \(\mathcal U\) is a registered neighbourhood of
+\(\gamma_j\) is it a loop-local amplitude/winding dissociation.  A
+singularity lying on an endpoint loop makes its winding undefined; recording
+that case as zero would manufacture the dissociation from an artefact.
+
+Collapse on one loop bounds nothing on the remaining periods.  If the
+classes \(\{[\gamma_j]\}\) generate a registered monitored subspace
+\(H_{\mathrm{mon}}\subseteq H_1(U_{\mathrm{post}};\mathbb R)\) and every
+post-condition generator has zero winding, then the post-condition
+cohomology class vanishes only on \(H_{\mathrm{mon}}\).  Full triviality in
+\(H^1_{\dR}(U_{\mathrm{post}})\) follows only when
+\(H_{\mathrm{mon}}=H_1(U_{\mathrm{post}};\mathbb R)\); at least one
+pre-condition generator must have non-zero winding for a sector collapse.
+The stronger \emph{survives-but-dead} description additionally requires
+(i) an independently declared viability or functional-continuation
+variable to be preserved and (ii) a predeclared bridge validating the
+monitored winding as an identity-transfer witness in the target system.
+Neither premise is supplied by the amplitude/winding dissociation alone.
+\end{hypothesis}
+
+For the dual local-only arm, register one loop \(\gamma\), a neighbouring
+region \(\mathcal U_\gamma\), a spatiotemporal window, an oriented
+orthonormal frame and units, the derivative/smoothing/mask pipeline, a
+same-carrier observation bridge, and a multiplicity plan.  At \(N\ge1\)
+uniformly weighted registered samples, let \(J_i\) be the Jacobian of the
+same local vector-field estimator and define the coherent signed-spin score
+\[
+r_i:=\frac12\bigl((J_i)_{21}-(J_i)_{12}\bigr),
+\qquad
+R_{\mathrm{loc}}:=\left|\frac1N\sum_{i=1}^N r_i\right|.
+\]
+This estimator does not explicitly consume the registered oscillation-
+amplitude functional.  Its mask, derivative scale and reliability may still
+depend on signal quality, so empirical amplitude invariance would require a
+separate validation.  Oppositely oriented subregions can cancel, so it tests
+this registered mean
+readout rather than the existence of \(d\omega_S\ne0\) somewhere.  Since
+\(R_{\mathrm{loc}}=|\bar r|\) is folded, the procedure is a two-sided test
+of the signed mean and is silent on handedness.  Run the
+identical full pipeline---including sample count, window, mask, frame,
+smoothing, and nuisance fitting---on \(m\) preregistered no-rotation
+calibration units, obtaining \(R_1^{(0)},\ldots,R_m^{(0)}\).  Because the
+reference distribution is built at the level of whole units, spatial
+autocorrelation among the \(N\) within-unit samples does not invalidate the
+procedure; the effective null sample size is \(m\), not \(N\).  Before the
+test, fix
+\[
+0<\alpha_{\mathrm{loc}}<1,
+\qquad R_{\min}>0,
+\qquad \frac1{m+1}\le\alpha_{\mathrm{loc}},
+\]
+where \(R_{\min}\) is justified by instrument resolution or a declared
+minimum practical effect.  The last condition is necessary and sufficient
+for the rank grid to contain a value at most
+\(\alpha_{\mathrm{loc}}\), since its minimum is \(1/(m+1)\); it does not
+guarantee rejection in realized data, where ties or a non-extreme observed
+score can keep \(p_{\mathrm{loc}}\) larger.  Now assume the registered \emph{design} premise---logically
+independent of the sharp no-rotation null, and not testable from these
+data---that the experimental unit and the \(m\) calibration units are
+exchangeable draws from a common data-generating distribution, matched in
+signal-to-noise, coverage, mask geometry and nuisance structure, so that
+under the sharp null the vector
+\((R_{\mathrm{loc}},R_1^{(0)},\ldots,R_m^{(0)})\) is permutation-invariant.
+Running the identical pipeline controls pipeline heterogeneity, not unit
+heterogeneity; unlike a within-unit randomization null, this between-unit
+reference distribution is assumed rather than constructed, so the
+validity of the arm is exactly as good as that matching.  Under that
+premise, use the conservative rank value
+\[
+p_{\mathrm{loc}}
+:=\frac{1+\#\{k:R_k^{(0)}\ge R_{\mathrm{loc}}\}}{m+1}.
+\]
+
+\begin{hypothesis}[Calibrated local-only criterion]
+\label{hyp:local-only}
+A loop/region-local empirical realization of the local-only sector is
+declared exactly when a winding estimate satisfies the phase-domain,
+registered-loop, observed/reference reconstruction, branch-coupled
+edge-lift, aggregate-error, and
+sub-\(\pi\) no-alias gates and obeys
+\[
+n_\gamma=0,
+\qquad R_{\mathrm{loc}}\ge R_{\min},
+\qquad p_{\mathrm{loc}}\le\alpha_{\mathrm{loc}}.
+\]
+The use of \(\ge\) in the null exceedance count makes the rank test
+conservative under ties.  Here \(R_{\min}\) is a practical decision floor;
+the displayed rule alone is not a confidence-bound claim that the latent
+effect exceeds \(R_{\min}\).  Invalid winding, same-carrier bridge,
+provenance, calibration, cross-unit matching, joint-exchangeability, or
+multiplicity premises
+are non-applicability, not negative evidence.  When the premises are valid
+but any displayed gate fails, the verdict is \emph{no local-only
+detection} for the registered loop/region/window.  A family-wide statement
+additionally requires generator completeness and its preregistered
+multiplicity correction.  Neither outcome refutes
+Proposition~\ref{prop:independence}.
+\end{hypothesis}
+
+\paragraph{Falsifiable population formulation.}
+The two hypotheses above are unit-level declaration rules.  To attach a
+falsifiable population claim to either arm
+\(q\in\{\mathrm{wind},\mathrm{loc}\}\), preregister a source-population law
+\(\nu_q\), an outcome-independent eligibility event \(\mathsf E_q\) with
+\(\Pr_{\nu_q}(\mathsf E_q=1)>0\), and the eligible-unit law
+\[
+\mu_q:=\nu_q(\,\cdot\mid\mathsf E_q=1).
+\]
+Also predeclare a minimum true-realization prevalence
+\(\pi_q\in(0,1)\), a detection-sensitivity lower bound
+\(s_q\in(0,1]\), and a test level \(\alpha_q\in(0,1)\).  With
+\(\mathsf R_q\) denoting a true realization and \(\mathsf D_q\) its
+registered detection, the conjecture is explicitly conditional on
+eligibility:
+\[
+\Pr_{\nu_q}(\mathsf R_q\mid\mathsf E_q=1)
+ =\Pr_{\mu_q}(\mathsf R_q)\ge\pi_q,
+\qquad
+\Pr_{\nu_q}(\mathsf D_q\mid\mathsf R_q,\mathsf E_q=1)
+ =\Pr_{\mu_q}(\mathsf D_q\mid\mathsf R_q)\ge s_q.
+\]
+For \(N_q\) independent draws from \(\mu_q\) and \(K_q\) detections, it is
+disconfirmed at the registered eligible-unit level when
+\[
+\sum_{r=0}^{K_q}\binom{N_q}{r}
+ (\pi_qs_q)^r(1-\pi_qs_q)^{N_q-r}\le\alpha_q.
+\]
+In particular, zero detections require
+\((1-\pi_qs_q)^{N_q}\le\alpha_q\).  Clustered or dependent units require a
+preregistered dependence-valid replacement bound.  Non-applicable units
+are reported but are not negative observations, and post-outcome exclusion
+or sampling from a law other than the declared \(\mu_q\) invalidates the
+arm.  This probabilistic claim is distinct from the formal existence of the
+mathematical channel sectors.
+
+The formal theory predicts that this sector is not type-forbidden.
+Whether a particular cortex, task, and estimator class realizes it remains
+an empirical question.
+
+\section{Falsification surface and limits}
+
+\begin{enumerate}[leftmargin=2.2em]
+  \item Proposition~\ref{prop:independence} is established by two explicit
+        fields on one flat compact torus under the canonical Hodge projection,
+        so the route to falsification is an arithmetic, Hodge-projection or
+        hypothesis error in those constructions.  The zero--zero exact form
+        noted afterwards is not a non-gradient carrier witness.
+  \item Proposition~\ref{prop:WV} is executable through
+        Corollary~\ref{cor:WV-arm}: after the compactness, harmonic-basis,
+        class-coordinate, evaluation-span, and exact-arithmetic
+        (symbolic or rational) certificates are supplied,
+        the observable is \(\rho_V(c)=\lVert Ea\rVert_\infty\) and the
+        threshold is exactly zero.  A missing span certificate makes a
+        sampled zero non-applicable as a membership certificate; a
+        floating-point pipeline places the instance outside this arm
+        rather than merely degrading it.
+  \item Proposition~\ref{prop:norm} concerns the same one-form on the
+        same loop.  Applying it across unmatched instruments is
+        non-applicability, not a theorem failure.
+  \item The empirical bridge is weakened if winding cannot be estimated
+        robustly under registered-loop transport and singularity tracking.
+        It is \emph{non-applicable}, not merely weakened, if the
+        phase-domain, registered-loop, observed/reference reconstruction and
+        branch-coupled edge-lift coupling,
+        aggregate-error or sub-\(\pi\) no-alias gates fail,
+        or if amplitude and winding are algorithmically forced to co-vary
+        by the estimator: the latter is a same-carrier bridge failure.
+  \item Hypotheses~\ref{hyp:empirical} and
+        \ref{hyp:local-only} are unit-level declaration rules.  The
+        falsifiable object is the registered eligible-unit prevalence claim
+        \(\Pr_{\mu_q}(\mathsf R_q)\ge\pi_q\), together with its declared
+        sensitivity, eligibility-conditioning and sampling premises.  Its
+        falsifier measures the registered detection count \(K_q\) and uses
+        the displayed lower-tail threshold; it does not treat finite
+        non-observation as the logical negation of existence.  Invalid phase,
+        provenance, unit matching, eligibility law or exchangeability
+        premises are non-applicability.
+  \item Failure to observe either dissociation disconfirms the registered
+        population claim only when its prevalence/sensitivity/power bound
+        crosses the preregistered level.  Otherwise it is no detection, and
+        in no case does it refute Proposition~\ref{prop:independence}.
+  \item The genericity statement proved in
+        Section~\ref{sec:compact} is itself a limit on the programme: the
+        compact admissible topological-only sector is empty for generic \(V\),
+        so
+        Hypothesis~\ref{hyp:empirical} hunts a non-generic sector on that
+        branch.
+  \item A preserved amplitude without an independent continuation
+        variable is not evidence of survival, and winding loss without a
+        validated identity-witness bridge is not evidence of identity
+        death.  A zero winding on a probe domain with trivial \(H^1\) is
+        not evidence that every form of identity is absent.
+\end{enumerate}
+
+\section{Conclusion}
+
+Structural spin is one non-gradient layer with two formal channels:
+\[
+\Sigspin(F;P_{\mathrm{cl}})=([\eta_S],d\omega_S),
+\]
+with the selector suppressed only on the compact Hodge branch.  They are
+logically independent over the class of all declared signature data, and
+jointly constrained---generically to the point of collapsing the
+topological-only sector---under the compact admissibility package.  Period,
+path norm/amplitude, and vorticity flux are three ways to read a declared
+one-form drawn from that layer, once probes are chosen.  The dynamic
+residual is a further ledger variable.  The norm inequality connects a
+period to a compatible path norm and nothing more.  The compact
+topological-only premise gate is executable, conditional on the registered
+basis, evaluation-span and exact-arithmetic certificates, through the exact
+residual \(Ea\).  The dual empirical arm returns a three-valued verdict at
+its declared resolution---non-applicability, no detection, detection---with
+certified zero winding requiring a positive phase-domain floor, an
+independent sub-\(\pi\) true-step bound, a numerical reference edge-lift
+ledger with branch-coupled observation errors, an aggregate error below half
+a turn, an integer tolerance, a positive observed/reference amplitude floor,
+and complete loop registration.  Once these types are kept separate, the central
+experimental bet becomes both stronger and cleaner: the amplitude statistic
+from the same registered analytic signal can remain above its detection floor
+and within its observed-record equivalence margin while winding is lost on
+the registered loop---or, under the generator conditions of
+Hypothesis~\ref{hyp:empirical}, on the monitored homology subspace.  Full
+cohomology-class collapse requires generators of all \(H_1\); population
+disconfirmation requires the separately registered eligible-unit
+prevalence/sensitivity bound.  Identity death still requires the independent
+transfer and viability premises that give the winding witness its meaning.
+
+\begin{thebibliography}{9}
+
+\bibitem{structural}
+M.~Barziankou,
+\emph{Structural Spin as a Forgetful Separation over Dissipative
+Dynamics, with a Cohomological Obstruction to Identity Transfer},
+Navigational Cybernetics~2.5 (2026).
+\href{https://doi.org/10.17605/OSF.IO/94GWQ}
+{doi:10.17605/OSF.IO/94GWQ}.
+
+\bibitem{operational}
+M.~Barziankou,
+\emph{Operational Spin: A Physical Projection of UTAM-Directed Will into
+Adaptive Media} (2025).
+\href{https://doi.org/10.5281/zenodo.17938800}
+{doi:10.5281/zenodo.17938800}.
+
+\bibitem{bridge}
+M.~Barziankou,
+\emph{Spin-Channel Bridge and Core-Reduction: A Categorical Foundation}
+(2026).
+\href{https://doi.org/10.17605/OSF.IO/EAUD5}
+{doi:10.17605/OSF.IO/EAUD5}.
+
+\bibitem{nc25}
+M.~Barziankou,
+\emph{Navigational Cybernetics~2.5}.
+\href{https://doi.org/10.17605/OSF.IO/NHTC5}
+{doi:10.17605/OSF.IO/NHTC5}.
+
+\bibitem{ye}
+Z.~Ye et al.,
+``Brain-wide topographic coordination of rotating waves'',
+\emph{Science} \textbf{392} (2026), eadx1369.
+\href{https://doi.org/10.1126/science.adx1369}
+{doi:10.1126/science.adx1369}.
+
+\bibitem{bott-tu}
+R.~Bott and L.~W.~Tu,
+\emph{Differential Forms in Algebraic Topology},
+Springer, 1982.
+
+\bibitem{warner}
+F.~W.~Warner,
+\emph{Foundations of Differentiable Manifolds and Lie Groups},
+Springer, 1983, Ch.~6.
+
+\end{thebibliography}
+
+\end{document}
