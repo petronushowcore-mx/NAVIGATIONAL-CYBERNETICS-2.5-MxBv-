@@ -5,6 +5,7 @@
 *.asc       -text
 *.ots       -text
 *.sha256    -text
+*.tex       -text
 SHA256SUMS  -text
 
 # Binary payloads: never touched, never diffed as text.
